@@ -1,11 +1,7 @@
 using UnityEngine;
-using Microsoft.Extensions.Configuration;
 
 public class FileManager : MonoBehaviour
 {
-    private readonly IConfiguration builder = new ConfigurationBuilder()
-            .AddJsonFile("config.json")
-            .Build();
     private static FileManager instance;
     public static FileManager Instance
     {
@@ -39,11 +35,6 @@ public class FileManager : MonoBehaviour
         instance = this;
 
         DontDestroyOnLoad(gameObject);
-    }
-
-    public string GetValueByKey(string key)
-    {
-        return builder[key];
     }
 
 }
