@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &495487256961861019
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5113666975833570968}
+  - component: {fileID: 506177715157891958}
+  m_Layer: 0
+  m_Name: TowerOption
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5113666975833570968
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495487256961861019}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.17323305, y: 1.1086477, z: -0.012413732}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &506177715157891958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495487256961861019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82cd46edfbc77d341afe8dd33feb23bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listTower:
+  - {fileID: 3817098704889182209, guid: 37acef8c4b4c0434b9e21adf9df51943, type: 3}
+  - {fileID: 8801228366384997418, guid: a61d7618cabd0b14a83cbf8365090e95, type: 3}
+  - {fileID: 4337010106998357974, guid: e44d2d07d77e0644b911522d9c6d1cdc, type: 3}
+  baseTower: {fileID: 3241004724852965551, guid: 4f43794d9ee18764e9271240dfe7c345, type: 3}
