@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &506177715157891958
 MonoBehaviour:
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   listTower:
-  - {fileID: 3817098704889182209, guid: 37acef8c4b4c0434b9e21adf9df51943, type: 3}
-  - {fileID: 8801228366384997418, guid: a61d7618cabd0b14a83cbf8365090e95, type: 3}
-  - {fileID: 4337010106998357974, guid: e44d2d07d77e0644b911522d9c6d1cdc, type: 3}
+  - {fileID: 6019340384302475734, guid: a2e40ecc70f97a841a19f3da76c7a125, type: 3}
+  - {fileID: 990623495665595551, guid: eb657bacae1ab5b4492ef4affd8c3406, type: 3}
+  - {fileID: 7211369788838279548, guid: fd470bdd2f39d98469f142e1b3612b4b, type: 3}
   baseTower: {fileID: 3241004724852965551, guid: 4f43794d9ee18764e9271240dfe7c345, type: 3}
