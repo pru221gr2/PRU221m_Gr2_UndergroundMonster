@@ -10,8 +10,8 @@ public class EnemySpawner : MonoBehaviour
     public Transform spawnPoint1;
     public Transform spawnPoint2;
     int wave = 1;
-    int waveDuration = 10;
-    int spawnDuration = 4;
+    int waveDuration = 30;
+    int spawnDuration = 3;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +25,7 @@ public class EnemySpawner : MonoBehaviour
         waveTimer.Run();
 
         DisplayWaveText();
+        InitListEnemy();
     }
 
     // Update is called once per frame
@@ -38,11 +39,17 @@ public class EnemySpawner : MonoBehaviour
             if (spawnTimer.Finished)
             {
                 SpawnEnemy(RandomEnemy());
+                spawnTimer.Duration = Random.Range(1, 6);
                 spawnTimer.Run();
-            }        
+            }
         }
         else
         {
+            //stop and start timer
+            spawnTimer.Stop();
+            spawnTimer.Duration = Random.Range(1, 6);
+            spawnTimer.Run();
+
             wave++;
             DisplayWaveText();
             IncreaseEnemyHealth();
@@ -52,9 +59,9 @@ public class EnemySpawner : MonoBehaviour
 
     GameObject RandomEnemy()
     {
-        int randomBot = Random.Range(0, 1);
+        int randomBot = Random.Range(0, 6);
         return Enemies[randomBot];
-    } 
+    }
 
     void SpawnEnemy(GameObject enemy)
     {
@@ -93,15 +100,27 @@ public class EnemySpawner : MonoBehaviour
 
     void IncreaseEnemyHealth()
     {
-        //dang ko chay dc
-        //foreach(var enemy in Enemies)
-        //{
-        //    if (enemy.name.Contains("Bot1")) enemy.GetComponent<EnemyBot1>().Speed *= 2f;
-        //    if (enemy.name.Contains("Bot2")) enemy.GetComponent<EnemyBot2>().Speed *= 2f;
-        //    if (enemy.name.Contains("Bot3")) enemy.GetComponent<EnemyBot3>().Speed *= 2f;
-        //    if (enemy.name.Contains("Bot4")) enemy.GetComponent<EnemyBot4>().Speed *= 2f;
-        //    if (enemy.name.Contains("Bot5")) enemy.GetComponent<EnemyBot5>().Speed *= 2f;
-        //    if (enemy.name.Contains("Bot6")) enemy.GetComponent<EnemyBot6>().Speed *= 2f;
-        //}
+        foreach (var enemy in Enemies)
+        {
+            if (enemy.name.Contains("Bot1")) enemy.GetComponent<EnemyBot1>().Health *= 0.5f;
+            if (enemy.name.Contains("Bot2")) enemy.GetComponent<EnemyBot2>().Health *= 0.5f;
+            if (enemy.name.Contains("Bot3")) enemy.GetComponent<EnemyBot3>().Health *= 0.5f;
+            if (enemy.name.Contains("Bot4")) enemy.GetComponent<EnemyBot4>().Health *= 0.5f;
+            if (enemy.name.Contains("Bot5")) enemy.GetComponent<EnemyBot5>().Health *= 0.5f;
+            if (enemy.name.Contains("Bot6")) enemy.GetComponent<EnemyBot6>().Health *= 0.5f;
+        }
+    }
+
+    void InitListEnemy()
+    {
+        foreach (var enemy in Enemies)
+        {
+            if (enemy.name.Contains("Bot1")) enemy.GetComponent<EnemyBot1>().Init();
+            if (enemy.name.Contains("Bot2")) enemy.GetComponent<EnemyBot2>().Init();
+            if (enemy.name.Contains("Bot3")) enemy.GetComponent<EnemyBot3>().Init();
+            if (enemy.name.Contains("Bot4")) enemy.GetComponent<EnemyBot4>().Init();
+            if (enemy.name.Contains("Bot5")) enemy.GetComponent<EnemyBot5>().Init();
+            if (enemy.name.Contains("Bot6")) enemy.GetComponent<EnemyBot6>().Init();
+        }
     }
 }
