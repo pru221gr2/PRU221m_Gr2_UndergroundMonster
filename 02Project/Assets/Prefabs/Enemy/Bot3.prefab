@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1399203564323531885}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -500, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -313,5 +313,41 @@ PrefabInstance:
 --- !u!224 &6860072607633926314 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4812400110889322833, guid: 5d50c422c75576f42af9361a29d1b7a1, type: 3}
+  m_PrefabInstance: {fileID: 2160263099481039355}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6860072607633926318 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4812400110889322837, guid: 5d50c422c75576f42af9361a29d1b7a1, type: 3}
+  m_PrefabInstance: {fileID: 2160263099481039355}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8708307500879999932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6860072607633926318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 807db535192511c468b17b800aefcee3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 6860072607877425723}
+  healthBarPosition: {fileID: 4546644342303210146}
+  container: {fileID: 6860072608070886555}
+--- !u!114 &6860072607877425723 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4812400110041844672, guid: 5d50c422c75576f42af9361a29d1b7a1, type: 3}
+  m_PrefabInstance: {fileID: 2160263099481039355}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!224 &6860072608070886555 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4812400110249985376, guid: 5d50c422c75576f42af9361a29d1b7a1, type: 3}
   m_PrefabInstance: {fileID: 2160263099481039355}
   m_PrefabAsset: {fileID: 0}

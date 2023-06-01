@@ -7,13 +7,18 @@ public class EnemyBot1 : Enemy
     // Start is called before the first frame update
     void Start()
     {
-        Health = 1;
-        Speed = 5;
+        Health = 10;
+        Speed = 2;
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+    public override void Init()
+    {
+        Health = 10;
+        Speed = 2;
     }
 }
