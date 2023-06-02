@@ -1,25 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyBot2 : Enemy
 {
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
-        Health = 50;
-        Speed = 0.5f;
+        base.Start();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public override void Init()
+    public override void Init(GameObject gameObject)
     {
-        Health = 50;
-        Speed = 0.5f;
+        if (gameObject == null)
+        {
+            Health = 50;
+            Speed = 0.5f;
+        }
+        else
+        {
+            Health = gameObject.GetComponent<EnemyBot2>().Health;
+            Speed = gameObject.GetComponent<EnemyBot2>().Speed;
+        }
     }
 }
