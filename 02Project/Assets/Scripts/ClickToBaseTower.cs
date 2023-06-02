@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,7 +20,7 @@ public class ClickToBaseTower : MonoBehaviour
         else
         {
             //Buy tower
-        GameObject.FindGameObjectWithTag("TowerOption").GetComponent<Canvas>().enabled = true;
+            GameObject.FindGameObjectWithTag("TowerOption").GetComponent<Canvas>().enabled = true;
         }
         Debug.Log("ss");
     }
@@ -35,7 +34,7 @@ public class ClickToBaseTower : MonoBehaviour
     {
         listTransformTowerUsed.Add(transformTower);
         Instantiate(baseTower, transformTower.position, Quaternion.identity);
-        Instantiate(listTower[0], new Vector3(transformTower.position.x, transformTower.position.y+0.5f, transformTower.position.z), Quaternion.identity);
+        Instantiate(listTower[0], new Vector3(transformTower.position.x, transformTower.position.y + 0.5f, transformTower.position.z), Quaternion.identity);
         GameObject.FindGameObjectWithTag("TowerOption").GetComponent<Canvas>().enabled = false;
     }
     //When player chosse Tower 2
