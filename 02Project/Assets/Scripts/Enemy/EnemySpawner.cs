@@ -10,8 +10,8 @@ public class EnemySpawner : MonoBehaviour
     public Transform spawnPoint1;
     public Transform spawnPoint2;
     int wave = 1;
-    int waveDuration = 30;
-    int spawnDuration = 3;
+    int waveDuration = 10;
+    int spawnDuration = 6;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +39,7 @@ public class EnemySpawner : MonoBehaviour
             if (spawnTimer.Finished)
             {
                 SpawnEnemy(RandomEnemy());
-                spawnTimer.Duration = Random.Range(1, 6);
+                spawnTimer.Duration = Random.Range(8, 10);
                 spawnTimer.Run();
             }
         }
@@ -47,9 +47,10 @@ public class EnemySpawner : MonoBehaviour
         {
             //stop and start timer
             spawnTimer.Stop();
-            spawnTimer.Duration = Random.Range(1, 6);
+            spawnTimer.Duration = Random.Range(8, 10);
             spawnTimer.Run();
 
+            //moi wave hien tai chi tang mau cua quai
             wave++;
             DisplayWaveText();
             IncreaseEnemyHealth();
@@ -59,7 +60,7 @@ public class EnemySpawner : MonoBehaviour
 
     GameObject RandomEnemy()
     {
-        int randomBot = Random.Range(0, 6);
+        int randomBot = Random.Range(1, 2);
         return Enemies[randomBot];
     }
 
@@ -70,11 +71,13 @@ public class EnemySpawner : MonoBehaviour
         {
             case 0:
                 var enemy1 = Instantiate(enemy, spawnPoint1.position, Quaternion.identity);
+                SetInstantiatedEnemy(enemy1, enemy);
                 var move1 = enemy1.GetComponent<EnemyMovement>();
                 move1.Waypoints = GameObject.Find("Waypoints").GetComponent<Waypoints>().Waypoints1;
                 break;
             case 1:
                 var enemy2 = Instantiate(enemy, spawnPoint2.position, Quaternion.identity);
+                SetInstantiatedEnemy(enemy2, enemy);
                 var move2 = enemy2.GetComponent<EnemyMovement>();
                 move2.Waypoints = GameObject.Find("Waypoints").GetComponent<Waypoints>().Waypoints2;
                 break;
@@ -102,12 +105,12 @@ public class EnemySpawner : MonoBehaviour
     {
         foreach (var enemy in Enemies)
         {
-            if (enemy.name.Contains("Bot1")) enemy.GetComponent<EnemyBot1>().Health *= 0.5f;
-            if (enemy.name.Contains("Bot2")) enemy.GetComponent<EnemyBot2>().Health *= 0.5f;
-            if (enemy.name.Contains("Bot3")) enemy.GetComponent<EnemyBot3>().Health *= 0.5f;
-            if (enemy.name.Contains("Bot4")) enemy.GetComponent<EnemyBot4>().Health *= 0.5f;
-            if (enemy.name.Contains("Bot5")) enemy.GetComponent<EnemyBot5>().Health *= 0.5f;
-            if (enemy.name.Contains("Bot6")) enemy.GetComponent<EnemyBot6>().Health *= 0.5f;
+            if (enemy.name.Contains("Bot1")) enemy.GetComponent<EnemyBot1>().Health *= 1.5f;
+            if (enemy.name.Contains("Bot2")) enemy.GetComponent<EnemyBot2>().Health *= 1.5f;
+            if (enemy.name.Contains("Bot3")) enemy.GetComponent<EnemyBot3>().Health *= 1.5f;
+            if (enemy.name.Contains("Bot4")) enemy.GetComponent<EnemyBot4>().Health *= 1.5f;
+            if (enemy.name.Contains("Bot5")) enemy.GetComponent<EnemyBot5>().Health *= 1.5f;
+            if (enemy.name.Contains("Bot6")) enemy.GetComponent<EnemyBot6>().Health *= 1.5f;
         }
     }
 
@@ -115,12 +118,22 @@ public class EnemySpawner : MonoBehaviour
     {
         foreach (var enemy in Enemies)
         {
-            if (enemy.name.Contains("Bot1")) enemy.GetComponent<EnemyBot1>().Init();
-            if (enemy.name.Contains("Bot2")) enemy.GetComponent<EnemyBot2>().Init();
-            if (enemy.name.Contains("Bot3")) enemy.GetComponent<EnemyBot3>().Init();
-            if (enemy.name.Contains("Bot4")) enemy.GetComponent<EnemyBot4>().Init();
-            if (enemy.name.Contains("Bot5")) enemy.GetComponent<EnemyBot5>().Init();
-            if (enemy.name.Contains("Bot6")) enemy.GetComponent<EnemyBot6>().Init();
+            if (enemy.name.Contains("Bot1")) enemy.GetComponent<EnemyBot1>().Init(null);
+            if (enemy.name.Contains("Bot2")) enemy.GetComponent<EnemyBot2>().Init(null);
+            if (enemy.name.Contains("Bot3")) enemy.GetComponent<EnemyBot3>().Init(null);
+            if (enemy.name.Contains("Bot4")) enemy.GetComponent<EnemyBot4>().Init(null);
+            if (enemy.name.Contains("Bot5")) enemy.GetComponent<EnemyBot5>().Init(null);
+            if (enemy.name.Contains("Bot6")) enemy.GetComponent<EnemyBot6>().Init(null);
         }
+    }
+
+    void SetInstantiatedEnemy(GameObject instantiateEnemy, GameObject prefab)
+    {
+        if (instantiateEnemy.name.Contains("Bot1")) instantiateEnemy.GetComponent<EnemyBot1>().Init(prefab);
+        if (instantiateEnemy.name.Contains("Bot2")) instantiateEnemy.GetComponent<EnemyBot2>().Init(prefab);
+        if (instantiateEnemy.name.Contains("Bot3")) instantiateEnemy.GetComponent<EnemyBot3>().Init(prefab);
+        if (instantiateEnemy.name.Contains("Bot4")) instantiateEnemy.GetComponent<EnemyBot4>().Init(prefab);
+        if (instantiateEnemy.name.Contains("Bot5")) instantiateEnemy.GetComponent<EnemyBot5>().Init(prefab);
+        if (instantiateEnemy.name.Contains("Bot6")) instantiateEnemy.GetComponent<EnemyBot6>().Init(prefab);
     }
 }
