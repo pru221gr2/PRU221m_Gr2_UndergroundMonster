@@ -6,7 +6,6 @@ public class EnemyBot2 : Enemy
     protected override void Start()
     {
         base.Start();
-        print(Health);
     }
 
     // Update is called once per frame

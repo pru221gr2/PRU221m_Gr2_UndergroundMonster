@@ -10,8 +10,8 @@ public class EnemySpawner : MonoBehaviour
     public Transform spawnPoint1;
     public Transform spawnPoint2;
     int wave = 1;
-    int waveDuration = 10;
-    int spawnDuration = 6;
+    int waveDuration = 30;
+    int spawnDuration = 3;
 
     // Start is called before the first frame update
     void Start()
@@ -60,7 +60,7 @@ public class EnemySpawner : MonoBehaviour
 
     GameObject RandomEnemy()
     {
-        int randomBot = Random.Range(1, 2);
+        int randomBot = Random.Range(0, 6);
         return Enemies[randomBot];
     }
 
