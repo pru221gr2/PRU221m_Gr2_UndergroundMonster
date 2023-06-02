@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: -7303542887220047342}
   - component: {fileID: 8074013084553912766}
   - component: {fileID: 6914537375843471413}
+  - component: {fileID: 6763358501811941352}
   m_Layer: 0
   m_Name: Bot5
   m_TagString: Enemy
@@ -111,7 +112,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 2318218567746649154, guid: d79f13c7bf710844691848dc13d39b1b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -229,6 +230,18 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   healthBarPosition: {fileID: 0}
   container: {fileID: 0}
+--- !u!114 &6763358501811941352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9122973121482425107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c24aaed984f8e014bb4f32d23073c02e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7936323651552268623
 PrefabInstance:
   m_ObjectHideFlags: 0
