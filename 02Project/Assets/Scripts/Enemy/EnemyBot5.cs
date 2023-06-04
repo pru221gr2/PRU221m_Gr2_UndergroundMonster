@@ -5,15 +5,28 @@ using UnityEngine;
 public class EnemyBot5 : Enemy
 {
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
-        Health = 3;
-        Speed = 3;
+        base.Start();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public override void Init(GameObject gameObject)
+    {
+        if (gameObject == null)
+        {
+            Health = 30;
+            Speed = 0.7f;
+        }
+        else
+        {
+            Health = gameObject.GetComponent<EnemyBot5>().Health;
+            Speed = gameObject.GetComponent<EnemyBot5>().Speed;
+        }
     }
 }
