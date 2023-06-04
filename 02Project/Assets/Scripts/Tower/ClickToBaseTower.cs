@@ -15,7 +15,7 @@ public class ClickToBaseTower : MonoBehaviour
         transformTower = transform;
         if (listTransformTowerUsed.Contains(transformTower))
         {
-            //Update tower
+            //Update tower will be create in phase two
         }
         else
         {
