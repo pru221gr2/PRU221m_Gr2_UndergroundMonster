@@ -1,3 +1,5 @@
+using Assets.Scripts.Enemy;
+using Assets.Scripts.Turret;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,29 +8,23 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
 
-    [SerializeField] protected float moveSpeed = 10f;
-    [SerializeField] private float minDistanceToDealDamage = 0.1f;
+    public float moveSpeed;
 
-    public float Damage { get; set; }
+    private EnemyScanner _enemyScanner;
 
-    protected EnemyMovement enemyTarget;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private Transform enemyTarget;
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if(Turret.instance.Enemies.Count != 0)
-        {
-            enemyTarget = Turret.instance.Enemies[0];
-        }
         if (enemyTarget != null)
         {
             MoveProjectile();
             RotateProjectile();
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
 
@@ -39,9 +35,14 @@ public class Projectile : MonoBehaviour
         transform.Rotate(0f, 0f, angle);
     }
 
-    private void MoveProjectile()
+    protected virtual void MoveProjectile()
     {
         transform.position = Vector2.MoveTowards(transform.position, enemyTarget.transform.position, moveSpeed*Time.deltaTime);
+    }
+
+    public void SetEnemy(Transform enemy)
+    {
+        enemyTarget = enemy;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
