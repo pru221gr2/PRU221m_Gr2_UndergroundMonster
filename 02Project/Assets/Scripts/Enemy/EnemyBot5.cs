@@ -1,4 +1,4 @@
-using System.Collections;
+using Assets.Scripts.FileManager;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,15 +13,19 @@ public class EnemyBot5 : Enemy
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public override void Init(GameObject gameObject)
     {
+        IDictionary<string, EnemyData> keyValuePairs = FileManager.Instance.ReadEnemyConfig();
+
         if (gameObject == null)
         {
-            Health = 30;
-            Speed = 0.7f;
+            //Health = 30;
+            //Speed = 0.7f;
+            Health = keyValuePairs["Bot5"].Health;
+            Speed = keyValuePairs["Bot5"].Speed;
         }
         else
         {
