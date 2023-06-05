@@ -20,11 +20,13 @@ public class EnemyBot4 : Enemy
         {
             Health = 10;
             Speed = 1;
+            Damage = 10;
         }
         else
         {
             Health = gameObject.GetComponent<EnemyBot4>().Health;
             Speed = gameObject.GetComponent<EnemyBot4>().Speed;
+            Damage = gameObject.GetComponent<EnemyBot4>().Damage;
         }
     }
 }

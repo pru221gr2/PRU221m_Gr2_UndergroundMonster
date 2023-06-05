@@ -15,8 +15,6 @@ GameObject:
   - component: {fileID: 5986501367097989442}
   - component: {fileID: 4001945623746370365}
   - component: {fileID: -3504806785967247856}
-  - component: {fileID: 5774435882958350413}
-  - component: {fileID: 6925861048249045075}
   m_Layer: 0
   m_Name: Bot6
   m_TagString: Enemy
@@ -118,7 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!95 &5986501367097989442
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -135,7 +133,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!61 &4001945623746370365
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -183,33 +181,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &5774435882958350413
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2016851215247463825}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 807db535192511c468b17b800aefcee3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 0}
-  healthBarPosition: {fileID: 0}
-  container: {fileID: 0}
---- !u!114 &6925861048249045075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2016851215247463825}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c24aaed984f8e014bb4f32d23073c02e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7206539306573394951
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,30 +220,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8093889257128289495}
     m_Modifications:
-    - target: {fileID: 4812400110041844675, guid: 5d50c422c75576f42af9361a29d1b7a1, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4812400110041844675, guid: 5d50c422c75576f42af9361a29d1b7a1, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4812400110041844675, guid: 5d50c422c75576f42af9361a29d1b7a1, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4812400110041844675, guid: 5d50c422c75576f42af9361a29d1b7a1, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4812400110249985376, guid: 5d50c422c75576f42af9361a29d1b7a1, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 4812400110249985376, guid: 5d50c422c75576f42af9361a29d1b7a1, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 4812400110889322833, guid: 5d50c422c75576f42af9361a29d1b7a1, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -361,44 +308,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealthBarCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7803336407810392043, guid: 5d50c422c75576f42af9361a29d1b7a1, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: -339650023042239007}
+    - target: {fileID: 7803336407810392043, guid: 5d50c422c75576f42af9361a29d1b7a1, type: 3}
+      propertyPath: healthBarPosition
+      value: 
+      objectReference: {fileID: 8093889257128289495}
+    - target: {fileID: 9096983010022429641, guid: 5d50c422c75576f42af9361a29d1b7a1, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: -339650023042239007}
+    - target: {fileID: 9096983010022429641, guid: 5d50c422c75576f42af9361a29d1b7a1, type: 3}
+      propertyPath: healthBarPosition
+      value: 
+      objectReference: {fileID: 8093889257128289495}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d50c422c75576f42af9361a29d1b7a1, type: 3}
---- !u!114 &4289393861358495431 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4812400110041844672, guid: 5d50c422c75576f42af9361a29d1b7a1, type: 3}
-  m_PrefabInstance: {fileID: 8741461152088452359}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!224 &4289393861704001639 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4812400110249985376, guid: 5d50c422c75576f42af9361a29d1b7a1, type: 3}
-  m_PrefabInstance: {fileID: 8741461152088452359}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &4289393862205514834 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4812400110889322837, guid: 5d50c422c75576f42af9361a29d1b7a1, type: 3}
-  m_PrefabInstance: {fileID: 8741461152088452359}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &7803336407810392043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4289393862205514834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 807db535192511c468b17b800aefcee3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 4289393861358495431}
-  healthBarPosition: {fileID: 8093889257128289495}
-  container: {fileID: 4289393861704001639}
 --- !u!224 &4289393862205514838 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4812400110889322833, guid: 5d50c422c75576f42af9361a29d1b7a1, type: 3}
