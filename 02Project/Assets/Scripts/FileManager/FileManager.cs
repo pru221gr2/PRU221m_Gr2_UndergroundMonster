@@ -1,6 +1,8 @@
+using Assets.Scripts.FileManager;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 
 public class FileManager : MonoBehaviour
@@ -41,7 +43,7 @@ public class FileManager : MonoBehaviour
     }
 
 
-    public void ReadCSVFile(string path)
+    private IList<string[]> ReadCSVFile(string path)
     {
         try
         {
@@ -49,13 +51,13 @@ public class FileManager : MonoBehaviour
             if (!File.Exists(path))
             {
                 Debug.LogError("CSV file not found at path: " + path);
-                return;
+                return null;
             }
 
             // Read the file
             using (StreamReader reader = new StreamReader(path))
             {
-                List<string[]> csvData = new List<string[]>();
+                IList<string[]> csvData = new List<string[]>();
 
                 while (!reader.EndOfStream)
                 {
@@ -65,26 +67,44 @@ public class FileManager : MonoBehaviour
                     csvData.Add(rowData);
                 }
 
-                // Do something with the data (e.g., process or display it)
-                ProcessCSVData(csvData);
+                return csvData;
             }
         }
         catch (Exception e)
         {
             print(e.Message);
         }
-        
+        return null;
     }
 
-    void ProcessCSVData(List<string[]> data)
+    public IDictionary<string, EnemyData> ReadEnemyConfig()
     {
-        // Process or display the CSV data as needed
-        foreach (string[] row in data)
+        var data = ReadCSVFile(Path.Combine(UnityEngine.Windows.Directory.localFolder, "enemy.csv"));
+
+        if (data is null || !data.Any())
         {
-            foreach (string cell in row)
-            {
-                Debug.Log(cell);
-            }
+            return null;
         }
+        try
+        {
+            // Process or display the CSV data as needed
+            IDictionary<string, EnemyData> keyValuePairs = new Dictionary<string, EnemyData>();
+
+            foreach (string[] row in data)
+            {
+
+                keyValuePairs.Add(row[0].ToString(),
+                    new EnemyData(
+                        float.Parse(row[1].ToString()),
+                        float.Parse(row[2].ToString())));
+
+            }
+            return keyValuePairs;
+        }
+        catch (Exception e)
+        {
+            print(e.Message);
+        }
+        return null;
     }
 }
