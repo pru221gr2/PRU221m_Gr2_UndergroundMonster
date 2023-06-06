@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-    private HealthBar _healthBar;
 
     internal float MaxHealth;
     public float Health { get; set; }
@@ -34,12 +33,13 @@ public class Enemy : MonoBehaviour
     }
     public void TakeDamage(float damage)
     {
+        Health -= damage;
         if (Health <= 0)
         {
             Die();
             Collect.countCoin += 10;
         }
-        Health -= damage;
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -54,7 +54,7 @@ public class Enemy : MonoBehaviour
 
     public void Die()
     {
-        gameObject.GetComponent<Enemy>().Animator.SetBool("IsAlive", false);
+        Animator.SetBool("IsAlive", false);
         Destroy(gameObject);
     }
 }
