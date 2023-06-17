@@ -1,3 +1,4 @@
+using Assets.Scripts.Enemy;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
+    public Enemy enemy;
     public Image healthBar;
     public Transform healthBarPosition;
     public Transform container;
@@ -24,11 +26,11 @@ public class HealthBar : MonoBehaviour
             container.position = screenPosition;
         }
 
-        //Test Health Bar 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            healthBar.fillAmount -= 0.1f;
-        }
+        SetHealthBarValue();
+    }
+    public void SetHealthBarValue()
+    {
+            healthBar.fillAmount = enemy.Health / enemy.MaxHealth;
     }
 
 }

@@ -11,5 +11,6 @@ namespace Assets.Scripts.Enemy
     public class EnemiesCounter
     {
         public static List<GameObject> enemiesCount = new List<GameObject>();
+        public static List<GameObject> enemiesDead = new List<GameObject>();
     }
 }

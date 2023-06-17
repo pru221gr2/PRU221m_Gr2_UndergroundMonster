@@ -21,6 +21,14 @@ public class PauseMenu : MonoBehaviour
     }
     void Update()
     {
+        if (Time.timeScale==0f)
+        {
+            GameIsPaused = true;
+        }
+        else
+        {
+            GameIsPaused = false;
+        }
         if (GameIsPaused)
         {
             PauseButton.gameObject.SetActive(false);
@@ -48,9 +56,9 @@ public class PauseMenu : MonoBehaviour
     }
     void Menu()
     {
+
         Invoke("GoToMainMenu", 1f);
         GoToMainMenu();
-        GameIsPaused = false;
     }
     void SaveAndQuit()
     {
