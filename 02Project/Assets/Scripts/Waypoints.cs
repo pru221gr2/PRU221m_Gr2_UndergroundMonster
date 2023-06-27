@@ -28,6 +28,8 @@ public class Waypoints : MonoBehaviour
         waypoints1.Add(GameObject.Find("Waypoint8").transform);
         waypoints1.Add(GameObject.Find("Waypoint9").transform);
         waypoints1.Add(GameObject.Find("Waypoint10").transform);
+        waypoints1.Add(GameObject.Find("Waypoint11").transform);
+        waypoints1.Add(GameObject.Find("Waypoint12").transform);
     }
     public void AddWaypoints2()
     {
@@ -39,5 +41,7 @@ public class Waypoints : MonoBehaviour
         waypoints2.Add(GameObject.Find("Waypoint8").transform);
         waypoints2.Add(GameObject.Find("Waypoint9").transform);
         waypoints2.Add(GameObject.Find("Waypoint10").transform);
+        waypoints2.Add(GameObject.Find("Waypoint11").transform);
+        waypoints2.Add(GameObject.Find("Waypoint12").transform);
     }
 }
