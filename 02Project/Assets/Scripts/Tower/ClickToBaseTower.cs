@@ -15,7 +15,7 @@ public class ClickToBaseTower : MonoBehaviour
         transformTower = transform;
         if (listTransformTowerUsed.Contains(transformTower))
         {
-            //Update tower
+            //Update tower will be create in phase two
         }
         else
         {
@@ -36,7 +36,7 @@ public class ClickToBaseTower : MonoBehaviour
     {
         //add build audio
         AudioManager.Instance.PlaySFX("Build");
-        
+        Debug.Log("Db");
         listTransformTowerUsed.Add(transformTower);
         Instantiate(listTower[0], transformTower.position, Quaternion.identity);
         GameObject.FindGameObjectWithTag("TowerOption").GetComponent<Canvas>().enabled = false;
