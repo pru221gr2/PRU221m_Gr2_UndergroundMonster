@@ -148,7 +148,7 @@ MonoBehaviour:
   ShootPointLeft: {fileID: 990623497318564144}
   ShootPointCenter: {fileID: 0}
   ShootPointRight: {fileID: 2024527612555887826}
-  FireRate: 0.5
+  FireRate: 1
   Type: 2
   Level: 2
 --- !u!1 &990623495792004474
