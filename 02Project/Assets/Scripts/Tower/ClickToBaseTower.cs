@@ -36,7 +36,7 @@ public class ClickToBaseTower : MonoBehaviour
     {
         //add build audio
         AudioManager.Instance.PlaySFX("Build");
-        
+        Debug.Log("Db");
         listTransformTowerUsed.Add(transformTower);
         Instantiate(listTower[0], transformTower.position, Quaternion.identity);
         GameObject.FindGameObjectWithTag("TowerOption").GetComponent<Canvas>().enabled = false;
