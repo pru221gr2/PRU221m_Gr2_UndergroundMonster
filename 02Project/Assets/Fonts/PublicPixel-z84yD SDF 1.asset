@@ -57,11 +57,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: PublicPixel-z84yD SDF
+  m_Name: PublicPixel-z84yD SDF 1
   m_EditorClassIdentifier: 
-  hashCode: 930339966
+  hashCode: -472059921
   material: {fileID: 7524540004541291294}
-  materialHashCode: -764422370
+  materialHashCode: 1708193007
   m_Version: 1.1.0
   m_SourceFontFileGUID: 37e5429296e2aa54da84f13a35ceb08d
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 37e5429296e2aa54da84f13a35ceb08d, type: 3}
@@ -2453,7 +2453,7 @@ Material:
     - _OutlineSoftness: 0
     - _OutlineUVSpeedX: 0
     - _OutlineUVSpeedY: 0
-    - _OutlineWidth: 0.296
+    - _OutlineWidth: 0
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
     - _ScaleRatioA: 0.8333333
