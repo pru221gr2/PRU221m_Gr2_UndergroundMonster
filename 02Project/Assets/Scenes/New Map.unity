@@ -31614,7 +31614,7 @@ GameObject:
   - component: {fileID: 609210440}
   m_Layer: 5
   m_Name: PriceOfTower2
-  m_TagString: Untagged
+  m_TagString: PriceOfTower2Level1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32548,7 +32548,7 @@ GameObject:
   - component: {fileID: 753019586}
   m_Layer: 5
   m_Name: PriceOfTower1
-  m_TagString: Untagged
+  m_TagString: PriceOfTower1Level1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52956,7 +52956,7 @@ GameObject:
   - component: {fileID: 1974892703}
   m_Layer: 5
   m_Name: PriceOfTower3
-  m_TagString: Untagged
+  m_TagString: PriceOfTower3Level1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
