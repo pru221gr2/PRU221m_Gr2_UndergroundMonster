@@ -63,13 +63,16 @@ public class ClickToBaseTower : MonoBehaviour
         //add click audio
         AudioManager.Instance.PlaySFX("Select");
         GameObject.FindGameObjectWithTag("TowerOption").GetComponent<Canvas>().enabled = false;
+        GameObject.FindGameObjectWithTag("PriceOfTower1Level1").GetComponent<TextMeshProUGUI>().color = Color.black;
+        GameObject.FindGameObjectWithTag("PriceOfTower2Level1").GetComponent<TextMeshProUGUI>().color = Color.black;
+        GameObject.FindGameObjectWithTag("PriceOfTower3Level1").GetComponent<TextMeshProUGUI>().color = Color.black;
     }
     //When player chosse Tower 1
     public void ClickTowerButtonOne()
     {
         GameObject.FindGameObjectWithTag("PriceOfTower1Level1").GetComponent<TextMeshProUGUI>().color = Color.black;
         //add build audio
-        if (Collect.countCoin > Collect.MoneyTurretOneLevelOne)
+        if (Collect.countCoin >= Collect.MoneyTurretOneLevelOne)
         {
         AudioManager.Instance.PlaySFX("Build");
         Collect.countCoin-=Collect.MoneyTurretOneLevelOne;
@@ -88,7 +91,7 @@ public class ClickToBaseTower : MonoBehaviour
     {
         GameObject.FindGameObjectWithTag("PriceOfTower2Level1").GetComponent<TextMeshProUGUI>().color = Color.black;
         //add build audio
-        if (Collect.countCoin > Collect.MoneyTurretTwoLevelOne)
+        if (Collect.countCoin >= Collect.MoneyTurretTwoLevelOne)
         {
             //add build audio
             AudioManager.Instance.PlaySFX("Build");
@@ -107,7 +110,7 @@ public class ClickToBaseTower : MonoBehaviour
     {
         GameObject.FindGameObjectWithTag("PriceOfTower3Level1").GetComponent<TextMeshProUGUI>().color = Color.black;
         //add build audio
-        if (Collect.countCoin > Collect.MoneyTurretThreeLevelOne)
+        if (Collect.countCoin >= Collect.MoneyTurretThreeLevelOne)
         {
             AudioManager.Instance.PlaySFX("Build");
             Collect.countCoin -= Collect.MoneyTurretThreeLevelOne;
