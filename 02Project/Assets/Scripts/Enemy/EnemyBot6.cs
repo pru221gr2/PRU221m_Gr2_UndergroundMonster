@@ -20,7 +20,7 @@ public class EnemyBot6 : Enemy
     {
         if (gameObject == null)
         {
-            Health = 30;
+            Health = 5;
             Speed = 0.7f;
             Damage = 20;
         }

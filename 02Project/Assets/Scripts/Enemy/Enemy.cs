@@ -38,6 +38,7 @@ public class Enemy : MonoBehaviour
         {
             Die();
             Collect.countCoin += 10;
+            Collect.countTrophy += UnityEngine.Random.Range(10, 20);
         }
         
     }
@@ -55,6 +56,6 @@ public class Enemy : MonoBehaviour
     public void Die()
     {
         Animator.SetBool("IsAlive", false);
-        Destroy(gameObject);
+        Destroy(gameObject, 1.2f);
     }
 }

@@ -12,7 +12,7 @@ public class Collect : MonoBehaviour
 {
     public static int countCoin = 0;
 
-    internal int countTrophy = 0;
+    public static int countTrophy = 0;
 
     internal Text coinText;
 
@@ -26,5 +26,6 @@ public class Collect : MonoBehaviour
     private void Update()
     {
         coinText.text = countCoin.ToString();
+        trophyText.text = countTrophy.ToString();
     }
 }
