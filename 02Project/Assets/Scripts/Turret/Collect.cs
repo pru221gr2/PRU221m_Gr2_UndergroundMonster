@@ -21,7 +21,7 @@ public class Collect : MonoBehaviour
     public const int MoneyTurretThreeLevelTwo = 1000;
     public const int MoneyTurretThreeLevelThree = 2000;
 
-    internal int countTrophy = 0;
+    public static int countTrophy = 0;
 
     internal Text coinText;
 
@@ -35,5 +35,6 @@ public class Collect : MonoBehaviour
     private void Update()
     {
         coinText.text = countCoin.ToString();
+        trophyText.text = countTrophy.ToString();
     }
 }
