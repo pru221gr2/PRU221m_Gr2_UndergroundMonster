@@ -7,6 +7,7 @@ public class MainCamera : MonoBehaviour
     {
         //disable option tower when start game
         GameObject.FindGameObjectWithTag("TowerOption").GetComponent<Canvas>().enabled = false;
+        GameObject.FindGameObjectWithTag("TowerOptionUpdate").GetComponent<Canvas>().enabled = false;
     }
 
     // Update is called once per frame

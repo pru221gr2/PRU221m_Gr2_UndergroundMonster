@@ -18,7 +18,7 @@ public class EnemyBot4 : Enemy
     {  
         if (gameObject == null)
         {
-            Health = 10;
+            Health = 6;
             Speed = 1;
             Damage = 10;
         }
