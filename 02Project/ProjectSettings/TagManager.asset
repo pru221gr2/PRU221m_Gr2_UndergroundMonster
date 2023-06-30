@@ -18,6 +18,10 @@ TagManager:
   - PriceOfTower3Level1
   - PriceOfTower3Level2
   - PriceOfTower3Level3
+  - TowerOptionUpdate
+  - PriceUpdateTower
+  - PriceRemoveTower
+  - UpdateTowerButton
   layers:
   - Default
   - TransparentFX

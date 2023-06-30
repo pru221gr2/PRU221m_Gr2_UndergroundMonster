@@ -13,7 +13,6 @@ namespace Assets.Scripts.Tower
         public int TurretLevel { get; set; }
         public Transform TransformTurret { get; set; }
         public Transform TransformBase { get; set; }
-        
     }
     public enum TurretType
     {

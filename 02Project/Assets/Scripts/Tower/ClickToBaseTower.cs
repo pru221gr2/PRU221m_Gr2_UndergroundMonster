@@ -1,16 +1,18 @@
 using Assets.Scripts.Tower;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ClickToBaseTower : MonoBehaviour
 {
     [SerializeField]
-    List<Object> listTower;
+    List<UnityEngine.Object> listTower;
     static Transform transformTower;
-    static List<BaseTowerBuild> baseTowerBuilds = new List<BaseTowerBuild>();
-
+    public static List<BaseTowerBuild> baseTowerBuilds = new List<BaseTowerBuild>();
+    public static BaseTowerBuild baseTowerBuildinteract = new BaseTowerBuild();
     TextMeshProUGUI turrentOneLevelOne;
     TextMeshProUGUI turrentOneLevelTwo;
     TextMeshProUGUI turrentOneLevelThree;
@@ -47,25 +49,206 @@ public class ClickToBaseTower : MonoBehaviour
     {
         //add click audio
         AudioManager.Instance.PlaySFX("Select");
-        transformTower =transform;
-        var gameObject = baseTowerBuilds.FirstOrDefault(btb => btb.TransformBase.Equals(transformTower));
-        if (gameObject!=null)
+        transformTower = transform;
+        baseTowerBuildinteract = baseTowerBuilds.FirstOrDefault(btb => btb.TransformBase.Equals(transformTower));
+        if (baseTowerBuildinteract != null)
         {
+            GameObject.FindGameObjectWithTag("TowerOptionUpdate").GetComponent<Canvas>().enabled = true;
+            var moneyUpdate = GetMoneyTurretUpdate(baseTowerBuildinteract);
+            var moneyRemove = GetMoneyTurretRemove(baseTowerBuildinteract);
+            if (baseTowerBuildinteract.TurretLevel == 3)
+            {
+                GameObject.FindGameObjectWithTag("UpdateTowerButton").GetComponent<Button>().enabled = false;
+                GameObject.FindGameObjectWithTag("PriceUpdateTower").GetComponent<TextMeshProUGUI>().enabled = false;
+            }
+            GameObject.FindGameObjectWithTag("PriceUpdateTower").GetComponent<TextMeshProUGUI>().text = moneyUpdate.ToString()+"$";
+            GameObject.FindGameObjectWithTag("PriceRemoveTower").GetComponent<TextMeshProUGUI>().text = Math.Ceiling(moneyRemove * 0.8).ToString()+"$";
             //open option update tower red
-
             //open option update tower green
 
             //open option update tower blue
 
-            RemoveTurret(gameObject);
+            
             //Update tower will be create in phase two
         }
         else
         {
-            //Buy tower
+            //buy tower
             GameObject.FindGameObjectWithTag("TowerOption").GetComponent<Canvas>().enabled = true;
         }
 
+    }
+    public void UpdateTurret()
+    {
+        var moneyUpdate = GetMoneyTurretUpdate(baseTowerBuildinteract);
+        Debug.Log(moneyUpdate);
+       if (Collect.countCoin >= moneyUpdate)
+        {
+            //build new turret
+            AudioManager.Instance.PlaySFX("Build");
+            Collect.countCoin -= moneyUpdate;
+            RemoveTurret(baseTowerBuildinteract);
+            GameObject turret = GameObject.Instantiate(listTower[GetLocationNextLevelInArray(baseTowerBuildinteract)], transformTower.position, Quaternion.identity) as GameObject;
+            baseTowerBuilds.Add(new BaseTowerBuild()
+            {
+                TurretType = baseTowerBuildinteract.TurretType,
+                TurretLevel = baseTowerBuildinteract.TurretLevel+1,
+                TransformBase = transformTower,
+                TransformTurret = turret.transform
+            });
+            GameObject.FindGameObjectWithTag("TowerOptionUpdate").GetComponent<Canvas>().enabled = false;
+        }
+        else
+        {
+            Debug.Log("con cec");
+        }
+    }
+    public void SellTurret()
+    {
+        var money = GetMoneyTurretRemove(baseTowerBuildinteract);
+        Collect.countCoin += (int)Math.Ceiling(money * 0.8);
+        RemoveTurret(baseTowerBuildinteract);
+        GameObject.FindGameObjectWithTag("TowerOptionUpdate").GetComponent<Canvas>().enabled = false;
+
+        //enabled update tower
+        GameObject.FindGameObjectWithTag("UpdateTowerButton").GetComponent<Button>().enabled = true;
+        GameObject.FindGameObjectWithTag("PriceUpdateTower").GetComponent<TextMeshProUGUI>().enabled = true;
+
+    }
+    public int GetLocationNextLevelInArray(BaseTowerBuild baseTowerBuild)
+    {
+        switch (baseTowerBuild.TurretType)
+        {
+            case TurretType.Red:
+                switch (baseTowerBuild.TurretLevel)
+                {
+                    case 1:
+                        return 3;
+                        break;
+                    case 2:
+                        return 6;
+                        break;
+                }
+                break;
+
+            case TurretType.Green:
+                switch (baseTowerBuild.TurretLevel)
+                {
+                    case 1:
+                        return 4;
+                        break;
+                    case 2:
+                        return 7;
+                        break;
+                }
+                break;
+
+            case TurretType.Blu:
+                switch (baseTowerBuild.TurretLevel)
+                {
+                    case 1:
+                        return 5;
+                        break;
+                    case 2:
+                        return 8;
+                        break;
+                }
+                break;
+        }
+        return -1;
+    }
+    public int GetMoneyTurretUpdate(BaseTowerBuild baseTowerBuild)
+    {
+        switch (baseTowerBuild.TurretType)
+        {
+            case TurretType.Red:
+                switch (baseTowerBuild.TurretLevel)
+                {
+                    case 1:
+                        return Collect.MoneyTurretOneLevelTwo;
+                        break;
+                    case 2:
+                        return Collect.MoneyTurretOneLevelThree;
+                        break;
+                }
+                break;
+
+            case TurretType.Green:
+                switch (baseTowerBuild.TurretLevel)
+                {
+                    case 1:
+                        return Collect.MoneyTurretTwoLevelTwo;
+                        break;
+                    case 2:
+                        return Collect.MoneyTurretTwoLevelThree;
+                        break;
+                }
+                break;
+
+            case TurretType.Blu:
+                switch (baseTowerBuild.TurretLevel)
+                {
+                    case 1:
+                        return Collect.MoneyTurretThreeLevelTwo;
+                        break;
+                    case 2:
+                        return Collect.MoneyTurretThreeLevelThree;
+                        break;
+                }
+                break;
+        }
+        return -1;
+    }
+    public int GetMoneyTurretRemove(BaseTowerBuild baseTowerBuild)
+    {
+        switch (baseTowerBuild.TurretType)
+        {
+            case TurretType.Red:
+                switch (baseTowerBuild.TurretLevel)
+                {
+                    case 1:
+                        return Collect.MoneyTurretOneLevelOne;
+                        break;
+                    case 2:
+                        return Collect.MoneyTurretOneLevelTwo;
+                        break;
+                    case 3:
+                        return Collect.MoneyTurretOneLevelThree;
+                        break;
+                }
+                break;
+
+            case TurretType.Green:
+                switch (baseTowerBuild.TurretLevel)
+                {
+                    case 1:
+                        return Collect.MoneyTurretTwoLevelOne;
+                        break;
+                    case 2:
+                        return Collect.MoneyTurretTwoLevelTwo;
+                        break;
+                    case 3:
+                        return Collect.MoneyTurretTwoLevelThree;
+                        break;
+                }
+                break;
+
+            case TurretType.Blu:
+                switch (baseTowerBuild.TurretLevel)
+                {
+                    case 1:
+                        return Collect.MoneyTurretThreeLevelOne;
+                        break;
+                    case 2:
+                        return Collect.MoneyTurretThreeLevelTwo;
+                        break;
+                    case 3:
+                        return Collect.MoneyTurretThreeLevelThree;
+                        break;
+                }
+                break;
+        }
+        return -1;
     }
     public void RemoveTurret(BaseTowerBuild baseTowerBuild)
     {
@@ -82,6 +265,15 @@ public class ClickToBaseTower : MonoBehaviour
         GameObject.FindGameObjectWithTag("PriceOfTower2Level1").GetComponent<TextMeshProUGUI>().color = Color.black;
         GameObject.FindGameObjectWithTag("PriceOfTower3Level1").GetComponent<TextMeshProUGUI>().color = Color.black;
     }
+    public void CloseButtonUpdate()
+    {
+        //add click audio
+        AudioManager.Instance.PlaySFX("Select");
+        GameObject.FindGameObjectWithTag("TowerOptionUpdate").GetComponent<Canvas>().enabled = false;
+        //enable update tower button
+        GameObject.FindGameObjectWithTag("UpdateTowerButton").GetComponent<Button>().enabled = true;
+        GameObject.FindGameObjectWithTag("PriceUpdateTower").GetComponent<TextMeshProUGUI>().enabled = true;
+    }
     //When player chosse Tower 1
     public void ClickTowerButtonOne()
     {
@@ -96,7 +288,7 @@ public class ClickToBaseTower : MonoBehaviour
             baseTowerBuilds.Add(new BaseTowerBuild()
             {
                 TurretType = TurretType.Red,
-                TurretLevel =1,
+                TurretLevel = 1,
                 TransformBase = transformTower,
                 TransformTurret = turret.transform
             });
@@ -106,7 +298,6 @@ public class ClickToBaseTower : MonoBehaviour
         {
             GameObject.FindGameObjectWithTag("PriceOfTower1Level1").GetComponent<TextMeshProUGUI>().color = Color.red;
         }
-
     }
     //When player chosse Tower 2
     public void ClickTowerButtonTwo()
@@ -146,7 +337,7 @@ public class ClickToBaseTower : MonoBehaviour
             GameObject turret = GameObject.Instantiate(listTower[2], transformTower.position, Quaternion.identity) as GameObject;
             baseTowerBuilds.Add(new BaseTowerBuild()
             {
-                TurretType = TurretType.Red,
+                TurretType = TurretType.Blu,
                 TurretLevel = 1,
                 TransformBase = transformTower,
                 TransformTurret = turret.transform
