@@ -25,6 +25,7 @@ TagManager:
   - Scanners
   - PriceUpdateRange
   - PriceUpdateSpeed
+  - BaseTower
   layers:
   - Default
   - TransparentFX

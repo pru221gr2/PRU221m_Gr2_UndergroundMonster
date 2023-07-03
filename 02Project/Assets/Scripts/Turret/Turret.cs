@@ -17,6 +17,7 @@ public class Turret : MonoBehaviour
     private ProjectileSpawner _projectileSpawner;
     private bool _isHover = false;
 
+    public float health;
     private void Awake()
     {
         _enemyScanner = GetComponentInChildren<EnemyScanner>();
@@ -56,5 +57,26 @@ public class Turret : MonoBehaviour
         Vector2 targetPos = _enemyScanner.GetTarget().position;
         Direction = targetPos - (Vector2)Gun.transform.position;
         Gun.transform.up = Direction;
+    }
+
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnMouseDown()
+    {
+        var bases = GameObject.FindGameObjectsWithTag("BaseTower");
+        foreach (var b in bases)
+        {
+            if (b.transform.position == transform.position)
+            {
+                b.GetComponent<ClickToBaseTower>().OnMouseDown();
+            }
+        }
     }
 }

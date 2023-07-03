@@ -50,7 +50,7 @@ public class ClickToBaseTower : MonoBehaviour
         turrentThreeLevelOne.text = Collect.MoneyTurretThreeLevelOne.ToString();
     }
     //when player click to base tower
-    private void OnMouseDown()
+    public void OnMouseDown()
     {
         
         //add click audio
@@ -108,7 +108,7 @@ public class ClickToBaseTower : MonoBehaviour
         }
         else
         {
-            Debug.Log("con cec");
+
         }
     }
 

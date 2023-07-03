@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+    [SerializeField]
+    private Enemy enemy;
     float movementSpeed;
-    public List<Transform> Waypoints { get; set; }
-
     int waypointIndex = 0;
+    public List<Transform> Waypoints { get; set; }
+    public bool IsMovingToTurret { get; set; } = false;
+ 
     // Start is called before the first frame update
     void Start()
     {
@@ -18,18 +21,21 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, Waypoints[waypointIndex].position, movementSpeed * Time.deltaTime);
-        if (Vector2.Distance(transform.position, Waypoints[waypointIndex].position) < 0.1f)
+        if (!enemy.IsAttacking && !IsMovingToTurret)
         {
-            if (waypointIndex < Waypoints.Count - 1)
+            transform.position = Vector2.MoveTowards(transform.position, Waypoints[waypointIndex].position, movementSpeed * Time.deltaTime);
+            if (Vector2.Distance(transform.position, Waypoints[waypointIndex].position) < 0.1f)
             {
-                waypointIndex++;
+                if (waypointIndex < Waypoints.Count - 1)
+                {
+                    waypointIndex++;
+                }
+                else
+                {
+                    Destroy(gameObject);
+                }
             }
-            else
-            {
-                Destroy(gameObject);
-            }
-        }
+        }  
     }
 
     void SetMovementSpeed()
