@@ -20,6 +20,8 @@ public class Collect : MonoBehaviour
     public const int MoneyTurretThreeLevelOne = 500;
     public const int MoneyTurretThreeLevelTwo = 1000;
     public const int MoneyTurretThreeLevelThree = 2000;
+    public const int MoneyUpdateRange = 2000;
+    public const int MoneyUpdateSpeed = 3000;
 
     public static int countTrophy = 0;
 
