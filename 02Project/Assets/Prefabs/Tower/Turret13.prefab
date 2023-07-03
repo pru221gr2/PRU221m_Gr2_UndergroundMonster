@@ -140,6 +140,7 @@ GameObject:
   - component: {fileID: 6019340384302475729}
   - component: {fileID: 1876062396578590363}
   - component: {fileID: 7315868227571889467}
+  - component: {fileID: 6185724299129176897}
   m_Layer: 0
   m_Name: Turret13
   m_TagString: Turret
@@ -177,6 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gun: {fileID: 6019340384273273628}
+  health: 70
 --- !u!114 &7315868227571889467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,6 +198,42 @@ MonoBehaviour:
   FireRate: 3
   Type: 1
   Level: 3
+--- !u!58 &6185724299129176897
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6019340384302475734}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 1
 --- !u!1 &6019340384983322675
 GameObject:
   m_ObjectHideFlags: 0
