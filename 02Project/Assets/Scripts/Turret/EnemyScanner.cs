@@ -13,9 +13,15 @@ namespace Assets.Scripts.Turret
     public class EnemyScanner : MonoBehaviour
     {
         [SerializeField]
-        private float range = 5f;
+        public float range = 5f;
 
         private Transform CurrentEnemyTarget;
+
+        private void Update()
+        {
+            //visible scan range
+            transform.localScale = new Vector2(range, range);
+        }
 
         public void updateNearestEnemy()
         {

@@ -18,15 +18,17 @@ public class EnemyBot4 : Enemy
     {  
         if (gameObject == null)
         {
-            Health = 10;
+            Health = 6;
             Speed = 1;
-            Damage = 10;
+            Damage = 1;
+            AttackSpeed = 1;
         }
         else
         {
             Health = gameObject.GetComponent<EnemyBot4>().Health;
             Speed = gameObject.GetComponent<EnemyBot4>().Speed;
             Damage = gameObject.GetComponent<EnemyBot4>().Damage;
+            AttackSpeed = gameObject.GetComponent<EnemyBot4>().AttackSpeed;
         }
     }
 }

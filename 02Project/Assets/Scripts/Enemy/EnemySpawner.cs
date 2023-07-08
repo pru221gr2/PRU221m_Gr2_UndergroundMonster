@@ -45,16 +45,21 @@ public class EnemySpawner : MonoBehaviour
         }
         else
         {
-            //stop and start timer
-            spawnTimer.Stop();
-            spawnTimer.Duration = Random.Range(8, 10);
-            spawnTimer.Run();
+            //if this wave is finished, check if all monsters are dead. If yes then forward to the next
+            if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
+            {
+                //stop and start timer
+                SpawnEnemy(RandomEnemy());
+                spawnTimer.Stop();
+                spawnTimer.Duration = Random.Range(1, 5);
+                spawnTimer.Run();
 
-            //moi wave hien tai chi tang mau cua quai
-            wave++;
-            DisplayWaveText();
-            IncreaseEnemyHealth();
-            waveTimer.Run();
+                //moi wave hien tai chi tang mau cua quai
+                wave++;
+                DisplayWaveText();
+                IncreaseEnemyHealth();
+                waveTimer.Run();
+            }
         }
     }
 

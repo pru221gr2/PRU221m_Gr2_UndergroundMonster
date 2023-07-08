@@ -8,6 +8,24 @@ TagManager:
   - Enemy
   - Turret
   - Projectile
+  - EndPoint
+  - PriceOfTower1Level1
+  - PriceOfTower1Level2
+  - PriceOfTower1Level3
+  - PriceOfTower2Level1
+  - PriceOfTower2Level2
+  - PriceOfTower2Level3
+  - PriceOfTower3Level1
+  - PriceOfTower3Level2
+  - PriceOfTower3Level3
+  - TowerOptionUpdate
+  - PriceUpdateTower
+  - PriceRemoveTower
+  - UpdateTowerButton
+  - Scanners
+  - PriceUpdateRange
+  - PriceUpdateSpeed
+  - BaseTower
   layers:
   - Default
   - TransparentFX
