@@ -59,7 +59,7 @@ public class EnemySpawner : MonoBehaviour
 
                 //moi wave hien tai chi tang mau cua quai
                 wave++;
-                if (wave <= 10)
+                if (wave <= 1)
                 {
                     DisplayWaveText();
                     GameObject.Find("WaveTextOverall").GetComponent<TextMeshProUGUI>().text = $"Wave {wave}/10";
@@ -71,6 +71,9 @@ public class EnemySpawner : MonoBehaviour
                     var canvas = GameObject.Find("CanvasWin").GetComponent<Canvas>();
                     GameObject.Find("WinText").GetComponent<TextMeshProUGUI>().text = $"Score: {Collect.countTrophy}";
                     canvas.GetComponent<Canvas>().enabled = true;
+                    FileManager.Instance.WritePlayerScore(
+                        GameObject.Find("PlayerNameText").GetComponent<TextMeshProUGUI>().text, 
+                        Collect.countTrophy.ToString());
                     Time.timeScale = 0;
                 } 
             }
