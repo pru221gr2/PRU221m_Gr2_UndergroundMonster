@@ -16,6 +16,10 @@ public class MainMenuScript : MonoBehaviour
     public void AboutUs()
     {
         SceneManager.LoadScene("Credit");
+    }    
+    public void GuildLine()
+    {
+        SceneManager.LoadScene("Guidance");
     }
     public void QuitGame()
     {
