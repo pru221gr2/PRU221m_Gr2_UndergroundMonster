@@ -96,7 +96,9 @@ public class FileManager : MonoBehaviour
                 keyValuePairs.Add(row[0].ToString(),
                     new EnemyData(
                         float.Parse(row[1].ToString()),
-                        float.Parse(row[2].ToString())));
+                        float.Parse(row[2].ToString()),
+                        float.Parse(row[3].ToString()),
+                        float.Parse(row[4].ToString())));
 
             }
             return keyValuePairs;
