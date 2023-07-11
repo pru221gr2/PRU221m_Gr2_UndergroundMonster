@@ -22,13 +22,15 @@ public class EnemyBot6 : Enemy
         {
             Health = 5;
             Speed = 0.7f;
-            Damage = 20;
+            Damage = 3;
+            AttackSpeed = 0.75f;
         }
         else
         {
             Health = gameObject.GetComponent<EnemyBot6>().Health;
             Speed = gameObject.GetComponent<EnemyBot6>().Speed;
             Damage = gameObject.GetComponent<EnemyBot6>().Damage;
+            AttackSpeed = gameObject.GetComponent<EnemyBot6>().AttackSpeed;
         }
     }
 }

@@ -56,9 +56,19 @@ public class EnemySpawner : MonoBehaviour
 
                 //moi wave hien tai chi tang mau cua quai
                 wave++;
-                DisplayWaveText();
-                IncreaseEnemyHealth();
-                waveTimer.Run();
+                if (wave <= 10)
+                {
+                    DisplayWaveText();
+                    IncreaseEnemyHealth();
+                    waveTimer.Run();
+                }
+                else //win game
+                {
+                    var canvas = GameObject.Find("CanvasWave").GetComponent<Canvas>();
+                    GameObject.Find("WaveText").GetComponent<TextMeshProUGUI>().text = $"You won the game";
+                    canvas.GetComponent<Canvas>().enabled = true;
+                    Time.timeScale = 0;
+                } 
             }
         }
     }

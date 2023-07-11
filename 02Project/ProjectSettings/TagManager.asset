@@ -22,6 +22,10 @@ TagManager:
   - PriceUpdateTower
   - PriceRemoveTower
   - UpdateTowerButton
+  - Scanners
+  - PriceUpdateRange
+  - PriceUpdateSpeed
+  - BaseTower
   layers:
   - Default
   - TransparentFX

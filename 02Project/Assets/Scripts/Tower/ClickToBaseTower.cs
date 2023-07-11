@@ -1,13 +1,17 @@
 using Assets.Scripts.Tower;
+using Assets.Scripts.Turret;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ClickToBaseTower : MonoBehaviour
 {
+    private ProjectileSpawner _projectileSpawner;
+    private EnemyScanner _enemyScanner;
     [SerializeField]
     List<UnityEngine.Object> listTower;
     static Transform transformTower;
@@ -28,6 +32,7 @@ public class ClickToBaseTower : MonoBehaviour
     Canvas towerOption;
     private void Start()
     {
+
         turrentOneLevelOne = GameObject.FindGameObjectWithTag("PriceOfTower1Level1").GetComponent<TextMeshProUGUI>();
         //turrentOneLevelTwo = GameObject.FindGameObjectWithTag("PriceOfTower1Level2").GetComponent<TextMeshProUGUI>();
         //turrentOneLevelThree = GameObject.FindGameObjectWithTag("PriceOfTower1Level3").GetComponent<TextMeshProUGUI>();
@@ -40,13 +45,14 @@ public class ClickToBaseTower : MonoBehaviour
         //turrentThreeLevelTwo = GameObject.FindGameObjectWithTag("PriceOfTower3Level2").GetComponent<TextMeshProUGUI>();
         //turrentThreeLevelThree = GameObject.FindGameObjectWithTag("PriceOfTower3Level3").GetComponent<TextMeshProUGUI>();
 
-        turrentOneLevelOne.text = Collect.MoneyTurretOneLevelOne + "$";
-        turrentTwoLevelOne.text = Collect.MoneyTurretTwoLevelOne + "$";
-        turrentThreeLevelOne.text = Collect.MoneyTurretThreeLevelOne + "$";
+        turrentOneLevelOne.text = Collect.MoneyTurretOneLevelOne.ToString();
+        turrentTwoLevelOne.text = Collect.MoneyTurretTwoLevelOne.ToString();
+        turrentThreeLevelOne.text = Collect.MoneyTurretThreeLevelOne.ToString();
     }
     //when player click to base tower
-    private void OnMouseDown()
+    public void OnMouseDown()
     {
+        
         //add click audio
         AudioManager.Instance.PlaySFX("Select");
         transformTower = transform;
@@ -61,8 +67,10 @@ public class ClickToBaseTower : MonoBehaviour
                 GameObject.FindGameObjectWithTag("UpdateTowerButton").GetComponent<Button>().enabled = false;
                 GameObject.FindGameObjectWithTag("PriceUpdateTower").GetComponent<TextMeshProUGUI>().enabled = false;
             }
-            GameObject.FindGameObjectWithTag("PriceUpdateTower").GetComponent<TextMeshProUGUI>().text = moneyUpdate.ToString()+"$";
-            GameObject.FindGameObjectWithTag("PriceRemoveTower").GetComponent<TextMeshProUGUI>().text = Math.Ceiling(moneyRemove * 0.8).ToString()+"$";
+            GameObject.FindGameObjectWithTag("PriceUpdateTower").GetComponent<TextMeshProUGUI>().text = moneyUpdate.ToString();
+            GameObject.FindGameObjectWithTag("PriceUpdateRange").GetComponent<TextMeshProUGUI>().text = Collect.MoneyUpdateRange.ToString();
+            GameObject.FindGameObjectWithTag("PriceUpdateSpeed").GetComponent<TextMeshProUGUI>().text = Collect.MoneyUpdateSpeed.ToString();
+            GameObject.FindGameObjectWithTag("PriceRemoveTower").GetComponent<TextMeshProUGUI>().text = Math.Ceiling(moneyRemove * 0.8).ToString();
             //open option update tower red
             //open option update tower green
 
@@ -100,9 +108,48 @@ public class ClickToBaseTower : MonoBehaviour
         }
         else
         {
+
+        }
+    }
+
+    public void UpdateTurretRange()
+    {
+        var moneyUpdateRange = Collect.MoneyUpdateRange;
+        Debug.Log(moneyUpdateRange);
+        if (Collect.countCoin >= moneyUpdateRange)
+        {
+            //update range attack
+            AudioManager.Instance.PlaySFX("Build");
+            Collect.countCoin -= moneyUpdateRange;
+            _enemyScanner = GameObject.FindGameObjectsWithTag("Scanners").FirstOrDefault(sc => sc.transform.position.Equals(transformTower.position)).GetComponent<EnemyScanner>();
+            _enemyScanner.range += 1f;
+            GameObject.FindGameObjectWithTag("TowerOptionUpdate").GetComponent<Canvas>().enabled = false;
+        }
+        else
+        {
             Debug.Log("con cec");
         }
     }
+
+    public void UpdateTurretFireRate()
+    {
+        var moneyUpdateFireRate = Collect.MoneyUpdateSpeed;
+        Debug.Log(moneyUpdateFireRate);
+        if (Collect.countCoin >= moneyUpdateFireRate)
+        {
+            //update turret fire rate
+            AudioManager.Instance.PlaySFX("Build");
+            Collect.countCoin -= moneyUpdateFireRate;
+            _projectileSpawner = GameObject.FindGameObjectsWithTag("Turret").FirstOrDefault(sc => sc.transform.position.Equals(transformTower.position)).GetComponent<ProjectileSpawner>();
+            _projectileSpawner.FireRate -= 0.1f;
+            GameObject.FindGameObjectWithTag("TowerOptionUpdate").GetComponent<Canvas>().enabled = false;
+        }
+        else
+        {
+            Debug.Log("con cec");
+        }
+    }
+
     public void SellTurret()
     {
         var money = GetMoneyTurretRemove(baseTowerBuildinteract);

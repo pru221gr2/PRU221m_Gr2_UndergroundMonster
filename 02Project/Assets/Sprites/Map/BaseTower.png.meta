@@ -5,9 +5,6 @@ TextureImporter:
   - first:
       213: 1092933655907818480
     second: BaseTower_0
-  - first:
-      213: 6792456943816370240
-    second: BaseTower_1
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -105,9 +102,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 16
-        width: 29
-        height: 15
+        y: 0
+        width: 335
+        height: 329
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,27 +114,6 @@ TextureImporter:
       bones: []
       spriteID: 0fb54739e51ea2f00800000000000000
       internalID: 1092933655907818480
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BaseTower_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 29
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0486f483a97a34e50800000000000000
-      internalID: 6792456943816370240
       vertices: []
       indices: 
       edges: []
@@ -152,9 +128,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      BaseTower_0: 1092933655907818480
-      BaseTower_1: 6792456943816370240
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
