@@ -12,6 +12,11 @@ public class MainMenuScript : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         Time.timeScale = 1.0f;
     }
+
+    public void AboutUs()
+    {
+        SceneManager.LoadScene("Credit");
+    }
     public void QuitGame()
     {
         Application.Quit();

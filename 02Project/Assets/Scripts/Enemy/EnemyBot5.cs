@@ -20,15 +20,17 @@ public class EnemyBot5 : Enemy
     {
         if (gameObject == null)
         {
-            Health = 30;
+            Health = 4;
             Speed = 0.7f;
-            Damage = 15;
+            Damage = 2;
+            AttackSpeed = 1f;
         }
         else
         {
             Health = gameObject.GetComponent<EnemyBot5>().Health;
             Speed = gameObject.GetComponent<EnemyBot5>().Speed;
             Damage = gameObject.GetComponent<EnemyBot5>().Damage;
+            AttackSpeed = gameObject.GetComponent<EnemyBot5>().AttackSpeed;
         }
     }
 }

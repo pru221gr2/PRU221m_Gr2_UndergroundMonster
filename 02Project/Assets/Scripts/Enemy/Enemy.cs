@@ -8,13 +8,11 @@ public class Enemy : MonoBehaviour
     internal float MaxHealth;
     public float Health { get; set; }
     public float Speed { get; set; }
-
     public float Damage { get; set; }
     public Animator Animator { get; set; }
+    public float AttackSpeed { get; set; }
+    public bool IsAttacking { get; set; } = false;
 
-    //if enemy can attack
-    //bool IsAttacking = false;
-    //public double Damage { get; set; }
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -38,6 +36,7 @@ public class Enemy : MonoBehaviour
         {
             Die();
             Collect.countCoin += 10;
+            Collect.countTrophy += UnityEngine.Random.Range(10, 20);
         }
         
     }
@@ -55,6 +54,6 @@ public class Enemy : MonoBehaviour
     public void Die()
     {
         Animator.SetBool("IsAlive", false);
-        Destroy(gameObject);
+        Destroy(gameObject, 0.5f);
     }
 }
