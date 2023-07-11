@@ -56,6 +56,9 @@ public class Enemy : MonoBehaviour
             HealthBarBase.Instance.healthBar.fillAmount = HealthBarBase.Instance.currentHealth / HealthBarBase.Instance.maxHealth;
             if (HealthBarBase.Instance.currentHealth <= 0)
             {
+                FileManager.Instance.WritePlayerScore(
+                        GameObject.Find("PlayerNameText").GetComponent<TextMeshProUGUI>().text,
+                        Collect.countTrophy.ToString());
                 var canvas = GameObject.Find("CanvasLose").GetComponent<Canvas>();
                 GameObject.Find("LostText").GetComponent<TextMeshProUGUI>().text = $"Score: {Collect.countTrophy}";
                 canvas.GetComponent<Canvas>().enabled = true;
