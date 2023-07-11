@@ -7,4 +7,9 @@ public class Guidance : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
+    public void Replay()
+    {
+        SceneManager.LoadScene("New Map");
+    }
 }

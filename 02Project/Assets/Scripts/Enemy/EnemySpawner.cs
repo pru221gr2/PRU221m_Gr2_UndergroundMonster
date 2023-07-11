@@ -16,6 +16,8 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject.Find("CanvasWin").GetComponent<Canvas>().enabled = false;
+        GameObject.Find("CanvasLose").GetComponent<Canvas>().enabled = false;
         spawnTimer = gameObject.AddComponent<Timer>();
         spawnTimer.Duration = spawnDuration;
         spawnTimer.Run();
@@ -25,6 +27,7 @@ public class EnemySpawner : MonoBehaviour
         waveTimer.Run();
 
         DisplayWaveText();
+        GameObject.Find("WaveTextOverall").GetComponent<TextMeshProUGUI>().text = $"Wave {wave}/10";
         InitListEnemy();
     }
 
@@ -59,13 +62,14 @@ public class EnemySpawner : MonoBehaviour
                 if (wave <= 10)
                 {
                     DisplayWaveText();
+                    GameObject.Find("WaveTextOverall").GetComponent<TextMeshProUGUI>().text = $"Wave {wave}/10";
                     IncreaseEnemyHealth();
                     waveTimer.Run();
                 }
                 else //win game
                 {
-                    var canvas = GameObject.Find("CanvasWave").GetComponent<Canvas>();
-                    GameObject.Find("WaveText").GetComponent<TextMeshProUGUI>().text = $"You won the game";
+                    var canvas = GameObject.Find("CanvasWin").GetComponent<Canvas>();
+                    GameObject.Find("WinText").GetComponent<TextMeshProUGUI>().text = $"Score: {Collect.countTrophy}";
                     canvas.GetComponent<Canvas>().enabled = true;
                     Time.timeScale = 0;
                 } 
