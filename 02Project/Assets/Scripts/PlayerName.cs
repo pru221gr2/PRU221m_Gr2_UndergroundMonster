@@ -22,7 +22,7 @@ public class PlayerName : MonoBehaviour
     public void UpdatePlayerName()
     {
         GameObject.Find("PlayerNameText").GetComponent<TextMeshProUGUI>().text = inputField.text;
-        Time.timeScale = 30;
+        Time.timeScale = 1;
         GameObject.Find("CanvasEnterName").GetComponent<Canvas>().enabled = false;
     }
 }

@@ -59,7 +59,7 @@ public class EnemySpawner : MonoBehaviour
 
                 //moi wave hien tai chi tang mau cua quai
                 wave++;
-                if (wave <= 1)
+                if (wave <= 10)
                 {
                     DisplayWaveText();
                     GameObject.Find("WaveTextOverall").GetComponent<TextMeshProUGUI>().text = $"Wave {wave}/10";
