@@ -1,3 +1,5 @@
+using Assets.Scripts.FileManager;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyBot4 : Enemy
@@ -18,10 +20,11 @@ public class EnemyBot4 : Enemy
     {  
         if (gameObject == null)
         {
-            Health = 6;
-            Speed = 1;
-            Damage = 1;
-            AttackSpeed = 1;
+            IDictionary<string, EnemyData> keyValuePairs = FileManager.Instance.ReadEnemyConfig();
+            Health = keyValuePairs["Bot4"].Health;
+            Speed = keyValuePairs["Bot4"].Speed;
+            Damage = keyValuePairs["Bot4"].Damage;
+            AttackSpeed = keyValuePairs["Bot4"].AttackSpeed;
         }
         else
         {

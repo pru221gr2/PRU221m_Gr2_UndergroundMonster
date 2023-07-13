@@ -9,7 +9,7 @@ public class HealthBarBase : MonoBehaviour
     public static HealthBarBase Instance;
     public Image healthBar;
 
-    internal float maxHealth = 500f;
+    internal float maxHealth = 20f;
     internal float currentHealth;
 
     private void Awake()
