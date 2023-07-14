@@ -346,7 +346,7 @@ MonoBehaviour:
   m_text: 'Remove
 
 
-    Tower'
+    Turret'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a327c0f67dedf1046a392e5492f0fff2, type: 2}
   m_sharedMaterial: {fileID: 7524540004541291294, guid: a327c0f67dedf1046a392e5492f0fff2, type: 2}
@@ -54107,7 +54107,7 @@ MonoBehaviour:
   m_text: 'Update
 
 
-    Tower'
+    Turret'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a327c0f67dedf1046a392e5492f0fff2, type: 2}
   m_sharedMaterial: {fileID: 7524540004541291294, guid: a327c0f67dedf1046a392e5492f0fff2, type: 2}
