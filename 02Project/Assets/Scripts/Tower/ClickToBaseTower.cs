@@ -20,31 +20,17 @@ public class ClickToBaseTower : MonoBehaviour
     public static List<BaseTowerBuild> baseTowerBuilds = new List<BaseTowerBuild>();
     public static BaseTowerBuild baseTowerBuildinteract = new BaseTowerBuild();
     TextMeshProUGUI turrentOneLevelOne;
-    TextMeshProUGUI turrentOneLevelTwo;
-    TextMeshProUGUI turrentOneLevelThree;
 
     TextMeshProUGUI turrentTwoLevelOne;
-    TextMeshProUGUI turrentTwoLevelTwo;
-    TextMeshProUGUI turrentTwoLevelThree;
 
     TextMeshProUGUI turrentThreeLevelOne;
-    TextMeshProUGUI turrentThreeLevelTwo;
-    TextMeshProUGUI turrentThreeLevelThree;
 
     Canvas towerOption;
     private void Start()
     {
         turrentOneLevelOne = GameObject.FindGameObjectWithTag("PriceOfTower1Level1").GetComponent<TextMeshProUGUI>();
-        //turrentOneLevelTwo = GameObject.FindGameObjectWithTag("PriceOfTower1Level2").GetComponent<TextMeshProUGUI>();
-        //turrentOneLevelThree = GameObject.FindGameObjectWithTag("PriceOfTower1Level3").GetComponent<TextMeshProUGUI>();
-
         turrentTwoLevelOne = GameObject.FindGameObjectWithTag("PriceOfTower2Level1").GetComponent<TextMeshProUGUI>();
-        //turrentTwoLevelTwo = GameObject.FindGameObjectWithTag("PriceOfTower2Level2").GetComponent<TextMeshProUGUI>();
-        //turrentTwoLevelThree = GameObject.FindGameObjectWithTag("PriceOfTower2Level3").GetComponent<TextMeshProUGUI>();
-
         turrentThreeLevelOne = GameObject.FindGameObjectWithTag("PriceOfTower3Level1").GetComponent<TextMeshProUGUI>();
-        //turrentThreeLevelTwo = GameObject.FindGameObjectWithTag("PriceOfTower3Level2").GetComponent<TextMeshProUGUI>();
-        //turrentThreeLevelThree = GameObject.FindGameObjectWithTag("PriceOfTower3Level3").GetComponent<TextMeshProUGUI>();
 
         turrentOneLevelOne.text = Collect.MoneyTurretOneLevelOne.ToString();
         turrentTwoLevelOne.text = Collect.MoneyTurretTwoLevelOne.ToString();
@@ -73,11 +59,6 @@ public class ClickToBaseTower : MonoBehaviour
             GameObject.FindGameObjectWithTag("PriceUpdateRange").GetComponent<TextMeshProUGUI>().text = Collect.MoneyUpdateRange.ToString();
             GameObject.FindGameObjectWithTag("PriceUpdateSpeed").GetComponent<TextMeshProUGUI>().text = Collect.MoneyUpdateSpeed.ToString();
             GameObject.FindGameObjectWithTag("PriceRemoveTower").GetComponent<TextMeshProUGUI>().text = Math.Ceiling(moneyRemove * 0.8).ToString();
-            //open option update tower red
-            //open option update tower green
-
-            //open option update tower blue
-
             
             //Update tower will be create in phase two
         }
@@ -280,7 +261,7 @@ public class ClickToBaseTower : MonoBehaviour
         }
         return -1;
     }
-    public void RemoveTurret(BaseTowerBuild baseTowerBuild)
+    public static void RemoveTurret(BaseTowerBuild baseTowerBuild)
     {
         baseTowerBuilds.Remove(baseTowerBuild);
         Destroy(baseTowerBuild.TransformTurret.gameObject);
