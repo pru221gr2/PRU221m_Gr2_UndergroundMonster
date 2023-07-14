@@ -95,7 +95,9 @@ public class FileManager : MonoBehaviour
                 keyValuePairs.Add(row[0].ToString(),
                     new EnemyData(
                         float.Parse(row[1].ToString()),
-                        float.Parse(row[2].ToString())));
+                        float.Parse(row[2].ToString()),
+                        float.Parse(row[3].ToString()),
+                        float.Parse(row[4].ToString())));
 
             }
             return keyValuePairs;
@@ -111,7 +113,7 @@ public class FileManager : MonoBehaviour
     {
         var data = ReadCSVFile(Path.Combine(UnityEngine.Windows.Directory.localFolder, "score.csv"));
 
-        if (data is null || !data.Any())
+        if (data is null || !data.Any() || data.First().First() == "")
         {
             return null;
         }
@@ -167,6 +169,13 @@ public class FileManager : MonoBehaviour
         {
             string filePath = Path.Combine(UnityEngine.Windows.Directory.localFolder, "score.csv");
             var playerScores = ReadPlayerScore();
+            if (playerScores == null)
+            {
+                var dictionary = new Dictionary<string, string>();
+                dictionary.Add(playerName, playerScore);
+                WriteDictionaryToCsv(dictionary, filePath);
+                return;
+            }
 
             if (string.IsNullOrWhiteSpace(playerName))
             {
@@ -178,30 +187,50 @@ public class FileManager : MonoBehaviour
                 playerScore = "0";
             }
 
-            if (playerScores.Count >= 5)
+            if (playerScores.ContainsKey(playerName))
             {
-                for (int i = 5; i < playerScores.Count; i++)
+                if (Convert.ToInt32(playerScore) > Convert.ToInt32(playerScores[playerName]))
                 {
-                    var key = playerScores.ElementAt(i).Key;
-                    if (!string.IsNullOrWhiteSpace(key))
-                    {
-                        playerScores.Remove(key);
-                    }
+                    playerScores.Remove(playerName);
+                    playerScores.Add(playerName, playerScore);
+
+                    var playerScoreSort = from score in playerScores
+                                          orderby Convert.ToInt32(score.Value) descending
+                                          select score;
+
+                    WriteDictionaryToCsv(playerScoreSort.ToDictionary(pair => pair.Key, pair => pair.Value), filePath);
                 }
             }
+            else
+            {
+                if (playerScores.Count >= 5)
+                {
+                    if (Convert.ToInt32(playerScore) > Convert.ToInt32(playerScores.Last().Value))
+                    {
+                        //for (int i = 5; i < playerScores.Count; i++)
+                        //{
+                        //    var key = playerScores.ElementAt(i).Key;
+                        //    if (!string.IsNullOrWhiteSpace(key))
+                        //    {
+                        //        playerScores.Remove(key);
+                        //    }
+                        //}
+                        playerScores.Remove(playerScores.Last().Key);
+                        playerScores.Add(playerName, playerScore);
 
-            playerScores.Add(playerName, playerScore);
+                        var playerScoreSort = from score in playerScores
+                                              orderby Convert.ToInt32(score.Value) descending
+                                              select score;
 
-            var playerScoreSort = from score in playerScores
-                                  orderby Convert.ToInt32(score.Value) ascending
-                                  select score;
-
-            WriteDictionaryToCsv(playerScoreSort.ToDictionary(pair => pair.Key, pair => pair.Value), filePath);
+                        WriteDictionaryToCsv(playerScoreSort.ToDictionary(pair => pair.Key, pair => pair.Value), filePath);
+                    }
+                } 
+            }
         }
         catch (Exception e)
         {
-            Debug.LogError(e.Message);    
+            Debug.LogError(e.Message);
         }
-        
+
     }
 }

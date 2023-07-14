@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -31,12 +32,20 @@ public class Enemy : MonoBehaviour
     }
     public void TakeDamage(float damage)
     {
+        AudioManager.Instance.PlaySFX("Hurt");
         Health -= damage;
         if (Health <= 0)
         {
             Die();
-            Collect.countCoin += 10;
+            AudioManager.Instance.PlaySFX("Collect");
+            if (gameObject.name.StartsWith("Bot1")) Collect.countCoin += 20;
+            if (gameObject.name.StartsWith("Bot2")) Collect.countCoin += 50;
+            if (gameObject.name.StartsWith("Bot3")) Collect.countCoin += 40;
+            if (gameObject.name.StartsWith("Bot4")) Collect.countCoin += 40;
+            if (gameObject.name.StartsWith("Bot5")) Collect.countCoin += 40;
+            if (gameObject.name.StartsWith("Bot6")) Collect.countCoin += 60;
             Collect.countTrophy += UnityEngine.Random.Range(10, 20);
+
         }
         
     }
@@ -46,8 +55,20 @@ public class Enemy : MonoBehaviour
         if(collision.gameObject.tag == "EndPoint")
         {
             Die();
-            HealthBarBase.Instance.currentHealth -= Damage;
+            HealthBarBase.Instance.currentHealth -= 1f;
             HealthBarBase.Instance.healthBar.fillAmount = HealthBarBase.Instance.currentHealth / HealthBarBase.Instance.maxHealth;
+            if (HealthBarBase.Instance.currentHealth <= 0)
+            {
+                FileManager.Instance.WritePlayerScore(
+                        GameObject.Find("PlayerNameText").GetComponent<TextMeshProUGUI>().text,
+                        Collect.countTrophy.ToString());
+                var canvas = GameObject.Find("CanvasLose").GetComponent<Canvas>();
+                GameObject.Find("LostText").GetComponent<TextMeshProUGUI>().text = $"Player: {GameObject.Find("PlayerNameText").GetComponent<TextMeshProUGUI>().text}" +
+                    $"                                                              \nScore: {Collect.countTrophy}" +
+                    $"                                                              \nCoin: {Collect.countCoin}";
+                canvas.GetComponent<Canvas>().enabled = true;
+                Time.timeScale = 0;
+            }
         }
     }
 
