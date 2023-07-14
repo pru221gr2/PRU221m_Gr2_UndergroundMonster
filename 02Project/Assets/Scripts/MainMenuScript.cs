@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class MainMenuScript : MonoBehaviour
 {
-    public Button btnStart;
     public void PlayGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -17,7 +16,7 @@ public class MainMenuScript : MonoBehaviour
     {
         SceneManager.LoadScene("Credit");
     }    
-    public void GuildLine()
+    public void Guideline()
     {
         SceneManager.LoadScene("Guidance");
     }

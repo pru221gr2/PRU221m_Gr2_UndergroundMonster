@@ -7,6 +7,7 @@ public class Guidance : MonoBehaviour
     {
         Collect.countCoin = 1000;
         Collect.countTrophy = 0;
+
         if(HealthBarBase.Instance != null)
         {
             HealthBarBase.Instance.currentHealth = HealthBarBase.Instance.maxHealth;
@@ -19,7 +20,7 @@ public class Guidance : MonoBehaviour
     {
         Collect.countCoin = 1000;
         Collect.countTrophy = 0;
-        HealthBarBase.Instance.currentHealth = HealthBarBase.Instance.maxHealth;
+        if (HealthBarBase.Instance != null) HealthBarBase.Instance.currentHealth = HealthBarBase.Instance.maxHealth;
         PlayerPrefs.DeleteAll();
         SceneManager.LoadScene("New Map");
     }
