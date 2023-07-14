@@ -52,7 +52,7 @@ public class EnemyAttack : MonoBehaviour
         }
         else
         {
-            firstHit = false;
+            firstHit = true;
         }
     }
 }
