@@ -50,5 +50,9 @@ public class EnemyAttack : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            firstHit = false;
+        }
     }
 }
