@@ -3,6 +3,7 @@ using Assets.Scripts.Turret;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -25,14 +26,14 @@ public class Collect : MonoBehaviour
 
     public static int countTrophy = 0;
 
-    internal Text coinText;
+    internal TextMeshProUGUI coinText;
 
-    internal Text trophyText;
+    internal TextMeshProUGUI trophyText;
 
     protected virtual void Start()
     {
-        coinText = GameObject.Find("Coin_Value").GetComponent<Text>();
-        trophyText = GameObject.Find("Score_Value").GetComponent<Text>();
+        coinText = GameObject.Find("Coin_Value").GetComponent<TextMeshProUGUI>();
+        trophyText = GameObject.Find("Score_Value").GetComponent<TextMeshProUGUI>();
     }
     private void Update()
     {

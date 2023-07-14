@@ -52,7 +52,7 @@ public class Enemy : MonoBehaviour
         if(collision.gameObject.tag == "EndPoint")
         {
             Die();
-            HealthBarBase.Instance.currentHealth -= 1;
+            HealthBarBase.Instance.currentHealth -= 1f;
             HealthBarBase.Instance.healthBar.fillAmount = HealthBarBase.Instance.currentHealth / HealthBarBase.Instance.maxHealth;
             if (HealthBarBase.Instance.currentHealth <= 0)
             {
@@ -60,7 +60,9 @@ public class Enemy : MonoBehaviour
                         GameObject.Find("PlayerNameText").GetComponent<TextMeshProUGUI>().text,
                         Collect.countTrophy.ToString());
                 var canvas = GameObject.Find("CanvasLose").GetComponent<Canvas>();
-                GameObject.Find("LostText").GetComponent<TextMeshProUGUI>().text = $"Score: {Collect.countTrophy}";
+                GameObject.Find("LostText").GetComponent<TextMeshProUGUI>().text = $"Player: {GameObject.Find("PlayerNameText").GetComponent<TextMeshProUGUI>().text}" +
+                    $"                                                              \nScore: {Collect.countTrophy}" +
+                    $"                                                              \nCoin: {Collect.countCoin}";
                 canvas.GetComponent<Canvas>().enabled = true;
                 Time.timeScale = 0;
             }

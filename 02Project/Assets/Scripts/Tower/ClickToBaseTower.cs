@@ -7,11 +7,13 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.GraphicsBuffer;
 
 public class ClickToBaseTower : MonoBehaviour
 {
     private ProjectileSpawner _projectileSpawner;
     private EnemyScanner _enemyScanner;
+    private float previousRange;
     [SerializeField]
     List<UnityEngine.Object> listTower;
     static Transform transformTower;
@@ -32,7 +34,6 @@ public class ClickToBaseTower : MonoBehaviour
     Canvas towerOption;
     private void Start()
     {
-
         turrentOneLevelOne = GameObject.FindGameObjectWithTag("PriceOfTower1Level1").GetComponent<TextMeshProUGUI>();
         //turrentOneLevelTwo = GameObject.FindGameObjectWithTag("PriceOfTower1Level2").GetComponent<TextMeshProUGUI>();
         //turrentOneLevelThree = GameObject.FindGameObjectWithTag("PriceOfTower1Level3").GetComponent<TextMeshProUGUI>();
@@ -49,6 +50,7 @@ public class ClickToBaseTower : MonoBehaviour
         turrentTwoLevelOne.text = Collect.MoneyTurretTwoLevelOne.ToString();
         turrentThreeLevelOne.text = Collect.MoneyTurretThreeLevelOne.ToString();
     }
+    
     //when player click to base tower
     public void OnMouseDown()
     {
@@ -89,6 +91,7 @@ public class ClickToBaseTower : MonoBehaviour
     public void UpdateTurret()
     {
         var moneyUpdate = GetMoneyTurretUpdate(baseTowerBuildinteract);
+        previousRange = GameObject.FindGameObjectsWithTag("Scanners").FirstOrDefault(sc => sc.transform.position.Equals(transformTower.position)).GetComponent<EnemyScanner>().range;
         Debug.Log(moneyUpdate);
        if (Collect.countCoin >= moneyUpdate)
         {
@@ -97,6 +100,8 @@ public class ClickToBaseTower : MonoBehaviour
             Collect.countCoin -= moneyUpdate;
             RemoveTurret(baseTowerBuildinteract);
             GameObject turret = GameObject.Instantiate(listTower[GetLocationNextLevelInArray(baseTowerBuildinteract)], transformTower.position, Quaternion.identity) as GameObject;
+            _enemyScanner = GameObject.FindGameObjectsWithTag("Scanners").LastOrDefault(sc => sc.transform.position.Equals(transformTower.position)).GetComponent<EnemyScanner>();
+            _enemyScanner.range = previousRange;
             baseTowerBuilds.Add(new BaseTowerBuild()
             {
                 TurretType = baseTowerBuildinteract.TurretType,
@@ -171,10 +176,8 @@ public class ClickToBaseTower : MonoBehaviour
                 {
                     case 1:
                         return 3;
-                        break;
                     case 2:
                         return 6;
-                        break;
                 }
                 break;
 
@@ -183,10 +186,8 @@ public class ClickToBaseTower : MonoBehaviour
                 {
                     case 1:
                         return 4;
-                        break;
                     case 2:
                         return 7;
-                        break;
                 }
                 break;
 
@@ -195,11 +196,8 @@ public class ClickToBaseTower : MonoBehaviour
                 {
                     case 1:
                         return 5;
-                        break;
                     case 2:
-                        return 8;
-                        break;
-                }
+                        return 8;                }
                 break;
         }
         return -1;
@@ -213,10 +211,8 @@ public class ClickToBaseTower : MonoBehaviour
                 {
                     case 1:
                         return Collect.MoneyTurretOneLevelTwo;
-                        break;
                     case 2:
                         return Collect.MoneyTurretOneLevelThree;
-                        break;
                 }
                 break;
 
@@ -225,10 +221,8 @@ public class ClickToBaseTower : MonoBehaviour
                 {
                     case 1:
                         return Collect.MoneyTurretTwoLevelTwo;
-                        break;
                     case 2:
                         return Collect.MoneyTurretTwoLevelThree;
-                        break;
                 }
                 break;
 
@@ -237,10 +231,8 @@ public class ClickToBaseTower : MonoBehaviour
                 {
                     case 1:
                         return Collect.MoneyTurretThreeLevelTwo;
-                        break;
                     case 2:
                         return Collect.MoneyTurretThreeLevelThree;
-                        break;
                 }
                 break;
         }
@@ -255,13 +247,10 @@ public class ClickToBaseTower : MonoBehaviour
                 {
                     case 1:
                         return Collect.MoneyTurretOneLevelOne;
-                        break;
                     case 2:
                         return Collect.MoneyTurretOneLevelTwo;
-                        break;
                     case 3:
                         return Collect.MoneyTurretOneLevelThree;
-                        break;
                 }
                 break;
 
@@ -270,13 +259,10 @@ public class ClickToBaseTower : MonoBehaviour
                 {
                     case 1:
                         return Collect.MoneyTurretTwoLevelOne;
-                        break;
                     case 2:
                         return Collect.MoneyTurretTwoLevelTwo;
-                        break;
                     case 3:
                         return Collect.MoneyTurretTwoLevelThree;
-                        break;
                 }
                 break;
 
@@ -285,13 +271,10 @@ public class ClickToBaseTower : MonoBehaviour
                 {
                     case 1:
                         return Collect.MoneyTurretThreeLevelOne;
-                        break;
                     case 2:
                         return Collect.MoneyTurretThreeLevelTwo;
-                        break;
                     case 3:
                         return Collect.MoneyTurretThreeLevelThree;
-                        break;
                 }
                 break;
         }
