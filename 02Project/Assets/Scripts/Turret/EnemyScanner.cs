@@ -20,7 +20,8 @@ namespace Assets.Scripts.Turret
         private void Update()
         {
             //visible scan range
-            transform.localScale = new Vector2(range, range);
+            float visibleRange = range * 1.35f;
+            transform.localScale = new Vector2(visibleRange, visibleRange);
         }
 
         public void updateNearestEnemy()
