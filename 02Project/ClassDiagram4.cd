@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AudioManager">
+    <Position X="17.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAgAAAAAABkASABAAAAAYAAAQEAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Audio\AudioManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sound">
+    <Position X="19.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Audio\Sound.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CreditScript">
+    <Position X="26.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\CreditScript.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Enemy">
+    <Position X="11.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQACACAACgACAAgAAAAAAABAEAAAAIAAAACgAQAAAA=</HashCode>
+      <FileName>Assets\Scripts\Enemy\Enemy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnemyAttack">
+    <Position X="19.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAICACAAAAAAAgAQAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Enemy\EnemyAttack.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnemyBot1">
+    <Position X="16" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Enemy\EnemyBot1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnemyBot2">
+    <Position X="7.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Enemy\EnemyBot2.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnemyBot3">
+    <Position X="9" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Enemy\EnemyBot3.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnemyBot4">
+    <Position X="10.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Enemy\EnemyBot4.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnemyBot5">
+    <Position X="12.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Enemy\EnemyBot5.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnemyBot6">
+    <Position X="14.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Enemy\EnemyBot6.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnemyMovement">
+    <Position X="30" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAIAAAACAAAAAAAAAAAgAAAAAAAAAIAAIAAAIAAAI=</HashCode>
+      <FileName>Assets\Scripts\Enemy\EnemyMovement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnemySpawner">
+    <Position X="28.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAoBAACAAAAAACAAAIAAAhAEgAEAIQAkIAAAQAAA=</HashCode>
+      <FileName>Assets\Scripts\Enemy\EnemySpawner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScanTurret">
+    <Position X="28.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQQAAAAACAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAEI=</HashCode>
+      <FileName>Assets\Scripts\Enemy\ScanTurret.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnemyConfig">
+    <Position X="21.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\FileManager\EnemyConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FileManager">
+    <Position X="17.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIACAgAAAAAAAAAAAAACAABBAAAAQAIAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\FileManager\FileManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Guidance">
+    <Position X="21.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Guidance.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthBar">
+    <Position X="21.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BASAAAAAACAACAAAAAIAAAAAAAAAAAAAAAAAAAAQAAI=</HashCode>
+      <FileName>Assets\Scripts\HealthBar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthBarBase">
+    <Position X="26.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIACAAAAAAAAAAAAAAAAAEAAAAQAAAAAAQAEA=</HashCode>
+      <FileName>Assets\Scripts\HealthBarBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Highscore">
+    <Position X="26.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Highscore.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainCamera">
+    <Position X="28.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\MainCamera.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainMenuScript">
+    <Position X="19.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IACAAAAAAAAAAAABAAAAAIIAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\MainMenuScript.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PauseMenu">
+    <Position X="19.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQgAIgIACAAAABAQAAAAAAAAAAIgAAgAAAAEAgQAAA=</HashCode>
+      <FileName>Assets\Scripts\PauseMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerName">
+    <Position X="17.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAEACAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\PlayerName.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projectile">
+    <Position X="24.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEiAAgAIAAAAAAAAAAEAAAAQAAAAIAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Projectile\Projectile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectileSpawner">
+    <Position X="30" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAABAACAAIAAAAQAAAAAAABAwEAAAAQAAQ=</HashCode>
+      <FileName>Assets\Scripts\Projectile\ProjectileSpawner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Timer">
+    <Position X="23" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAQAEAAAAAACAAAEAAQAAgAAAAgAAAAIIAAAAAEAAAI=</HashCode>
+      <FileName>Assets\Scripts\Timer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClickToBaseTower">
+    <Position X="23" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACsAAAEDEDDQAAOAAAABAoAABAACAAMAABAAAAQEg=</HashCode>
+      <FileName>Assets\Scripts\Tower\ClickToBaseTower.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Collect">
+    <Position X="24.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAwABAAAACAQAABABAAAAACAAAAgAgIAABAABAgAAQI=</HashCode>
+      <FileName>Assets\Scripts\Turret\Collect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Turret">
+    <Position X="26.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QEQAAAAAACAAAAAAASCAAAAAAAAAAAAAIAABgAAQQEg=</HashCode>
+      <FileName>Assets\Scripts\Turret\Turret.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Waypoints">
+    <Position X="24.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAEAAAAAACQAAAAAAAAAAAAAAAAAAAAAAAAAAIABAEA=</HashCode>
+      <FileName>Assets\Scripts\Waypoints.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assets.Scripts.Enemy.EnemiesCounter">
+    <Position X="26.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Enemy\EnemiesCounter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assets.Scripts.FileManager.EnemyData">
+    <Position X="21.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACACAAAAAAAAAAAAAAAABAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\FileManager\EnemyData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assets.Scripts.Tower.BaseTowerBuild">
+    <Position X="21.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAQRAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Tower\BaseTowerBuild.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assets.Scripts.Turret.EnemyScanner">
+    <Position X="30" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAQMAAAIAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Assets\Scripts\Turret\EnemyScanner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Assets.Scripts.Tower.TurretType">
+    <Position X="17.75" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAABAAABAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Tower\BaseTowerBuild.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
