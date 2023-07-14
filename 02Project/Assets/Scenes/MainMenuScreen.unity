@@ -3143,7 +3143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b29974c73cd0b7c48b3a73b124ebd86e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  btnStart: {fileID: 557779845}
 --- !u!1 &1059150275
 GameObject:
   m_ObjectHideFlags: 0
@@ -3381,7 +3380,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: GuildLine
+  m_text: Guideline
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a327c0f67dedf1046a392e5492f0fff2, type: 2}
   m_sharedMaterial: {fileID: 7524540004541291294, guid: a327c0f67dedf1046a392e5492f0fff2, type: 2}
@@ -3676,7 +3675,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1054746019}
         m_TargetAssemblyTypeName: MainMenuScript, Assembly-CSharp
-        m_MethodName: GuildLine
+        m_MethodName: Guideline
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
