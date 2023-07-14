@@ -32,10 +32,12 @@ public class Enemy : MonoBehaviour
     }
     public void TakeDamage(float damage)
     {
+        AudioManager.Instance.PlaySFX("Hurt");
         Health -= damage;
         if (Health <= 0)
         {
             Die();
+            AudioManager.Instance.PlaySFX("Collect");
             if (gameObject.name.StartsWith("Bot1")) Collect.countCoin += 20;
             if (gameObject.name.StartsWith("Bot2")) Collect.countCoin += 50;
             if (gameObject.name.StartsWith("Bot3")) Collect.countCoin += 40;
@@ -43,6 +45,7 @@ public class Enemy : MonoBehaviour
             if (gameObject.name.StartsWith("Bot5")) Collect.countCoin += 40;
             if (gameObject.name.StartsWith("Bot6")) Collect.countCoin += 60;
             Collect.countTrophy += UnityEngine.Random.Range(10, 20);
+
         }
         
     }

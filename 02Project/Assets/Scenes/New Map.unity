@@ -33720,7 +33720,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ghjgh
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a327c0f67dedf1046a392e5492f0fff2, type: 2}
   m_sharedMaterial: {fileID: 7524540004541291294, guid: a327c0f67dedf1046a392e5492f0fff2, type: 2}
@@ -37376,6 +37376,16 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: dc8d67c9df7f8664e9742ea9dcf49800, type: 3}
   - name: Warning
     clip: {fileID: 8300000, guid: 23f1af7d0a7dc8e45b533648ac870102, type: 3}
+  - name: Collect
+    clip: {fileID: 8300000, guid: 220544d8a5f9cf040a63999fa6fd4603, type: 3}
+  - name: Hurt
+    clip: {fileID: 8300000, guid: 9fe6712130870774b9216b00009d3b90, type: 3}
+  - name: P1
+    clip: {fileID: 8300000, guid: 513d2b53af167d242b7c00ccfb75f8b2, type: 3}
+  - name: P2
+    clip: {fileID: 8300000, guid: 188b70484b01b474b9e8503eb30e1cac, type: 3}
+  - name: P3
+    clip: {fileID: 8300000, guid: 9627e5f47bfe1b045a0407b9ddb77b4c, type: 3}
 --- !u!4 &1073589401
 Transform:
   m_ObjectHideFlags: 0
@@ -58044,7 +58054,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ghjhg
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a327c0f67dedf1046a392e5492f0fff2, type: 2}
   m_sharedMaterial: {fileID: 7524540004541291294, guid: a327c0f67dedf1046a392e5492f0fff2, type: 2}
