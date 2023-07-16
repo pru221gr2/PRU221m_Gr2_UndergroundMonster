@@ -69,7 +69,9 @@ public class EnemySpawner : MonoBehaviour
                 else //win game
                 {
                     var canvas = GameObject.Find("CanvasWin").GetComponent<Canvas>();
-                    GameObject.Find("WinText").GetComponent<TextMeshProUGUI>().text = $"Score: {Collect.countTrophy}";
+                    GameObject.Find("WinText").GetComponent<TextMeshProUGUI>().text = $"Player: {GameObject.Find("PlayerNameText").GetComponent<TextMeshProUGUI>().text}" +
+                        $"                                                              \nScore: {Collect.countTrophy}" +
+                        $"                                                              \nCoin: {Collect.countCoin}";
                     canvas.GetComponent<Canvas>().enabled = true;
                     FileManager.Instance.WritePlayerScore(
                         GameObject.Find("PlayerNameText").GetComponent<TextMeshProUGUI>().text, 

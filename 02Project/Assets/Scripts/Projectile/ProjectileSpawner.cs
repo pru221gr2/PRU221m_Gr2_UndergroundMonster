@@ -41,15 +41,18 @@ public class ProjectileSpawner : MonoBehaviour
             {
                 if (Level == 1)
                 {
+                    AudioManager.Instance.PlaySFX("P1");
                     SpawnProjectile(enemyTarget, ShootPointCenter);
                 }
                 if (Level == 2)
                 {
+                    AudioManager.Instance.PlaySFX("P1");
                     SpawnProjectile(enemyTarget, ShootPointLeft);
                     SpawnProjectile(enemyTarget, ShootPointRight);
                 }
                 if (Level == 3)
                 {
+                    AudioManager.Instance.PlaySFX("P1");
                     SpawnProjectile(enemyTarget, ShootPointCenter);
                 }
             }
@@ -57,15 +60,18 @@ public class ProjectileSpawner : MonoBehaviour
             {
                 if (Level == 1)
                 {
+                    AudioManager.Instance.PlaySFX("P2");
                     SpawnProjectile(enemyTarget, ShootPointCenter);
                 }   
                 if (Level == 2)
                 {
+                    AudioManager.Instance.PlaySFX("P2");
                     SpawnProjectile(enemyTarget, ShootPointLeft);
                     SpawnProjectile(enemyTarget, ShootPointRight);
                 }
                 if (Level == 3)
                 {
+                    AudioManager.Instance.PlaySFX("P2");
                     SpawnProjectile(enemyTarget, ShootPointCenter);
                 }
             }
@@ -73,15 +79,18 @@ public class ProjectileSpawner : MonoBehaviour
             {
                 if (Level == 1)
                 {
+                    AudioManager.Instance.PlaySFX("P3");
                     SpawnProjectile(enemyTarget, ShootPointCenter);
                 }
                 if (Level == 2)
                 {
+                    AudioManager.Instance.PlaySFX("P3");
                     SpawnProjectile(enemyTarget, ShootPointLeft);
                     SpawnProjectile(enemyTarget, ShootPointRight);
                 }
                 if (Level == 3)
                 {
+                    AudioManager.Instance.PlaySFX("P3");
                     SpawnProjectile(enemyTarget, ShootPointLeft);
                     SpawnProjectile(enemyTarget, ShootPointCenter);
                     SpawnProjectile(enemyTarget, ShootPointRight);
