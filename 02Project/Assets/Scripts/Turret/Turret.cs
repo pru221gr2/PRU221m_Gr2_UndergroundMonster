@@ -1,8 +1,10 @@
 using Assets.Scripts.Enemy;
+using Assets.Scripts.Tower;
 using Assets.Scripts.Turret;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -16,7 +18,6 @@ public class Turret : MonoBehaviour
     private EnemyScanner _enemyScanner;
     private ProjectileSpawner _projectileSpawner;
     private bool _isHover = false;
-
     public float health;
     private void Awake()
     {
@@ -64,6 +65,8 @@ public class Turret : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
+            ClickToBaseTower.baseTowerBuildinteract = ClickToBaseTower.baseTowerBuilds.FirstOrDefault(btb => btb.TransformTurret.Equals(transform));
+            ClickToBaseTower.RemoveTurret(ClickToBaseTower.baseTowerBuildinteract);
             Destroy(gameObject);
         }
     }
