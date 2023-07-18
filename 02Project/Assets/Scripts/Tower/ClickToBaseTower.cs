@@ -113,7 +113,6 @@ public class ClickToBaseTower : MonoBehaviour
         }
         else
         {
-            Debug.Log("con cec");
         }
     }
 
@@ -132,7 +131,6 @@ public class ClickToBaseTower : MonoBehaviour
         }
         else
         {
-            Debug.Log("con cec");
         }
     }
 
