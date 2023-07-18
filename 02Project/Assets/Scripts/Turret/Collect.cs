@@ -11,7 +11,7 @@ using UnityEngine.UI;
 
 public class Collect : MonoBehaviour
 {
-    public static int countCoin = 500;
+    public static int countCoin = 5000;
     public const int MoneyTurretOneLevelOne = 100;
     public const int MoneyTurretOneLevelTwo = 300;
     public const int MoneyTurretOneLevelThree = 900;

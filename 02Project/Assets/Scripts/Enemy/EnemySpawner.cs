@@ -16,6 +16,7 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         GameObject.Find("CanvasWin").GetComponent<Canvas>().enabled = false;
         GameObject.Find("CanvasLose").GetComponent<Canvas>().enabled = false;
         spawnTimer = gameObject.AddComponent<Timer>();
@@ -42,7 +43,7 @@ public class EnemySpawner : MonoBehaviour
             if (spawnTimer.Finished)
             {
                 SpawnEnemy(RandomEnemy());
-                spawnTimer.Duration = Random.Range(8, 10);
+                spawnTimer.Duration = Random.Range(4, 6);
                 spawnTimer.Run();
             }
         }
